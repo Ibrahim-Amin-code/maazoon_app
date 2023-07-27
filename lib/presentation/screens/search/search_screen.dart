@@ -1,0 +1,20 @@
+import 'package:flutter/material.dart';
+import 'package:maazoon_app/presentation/screens/search/widget/search_body.dart';
+
+import '../../../core/constants/constants.dart';
+
+class SearchScreen extends StatefulWidget {
+  const SearchScreen({super.key});
+
+  @override
+  State<SearchScreen> createState() => _SearchScreenState();
+}
+
+class _SearchScreenState extends State<SearchScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: customAppbar(title: 'search', context: context, atHome: false),
+        body: const SearchBody());
+  }
+}

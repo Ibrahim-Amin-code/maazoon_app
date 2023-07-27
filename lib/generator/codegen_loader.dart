@@ -1,0 +1,163 @@
+// DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
+
+// ignore_for_file: prefer_single_quotes, avoid_renaming_method_parameters
+
+import 'dart:ui';
+
+import 'package:easy_localization/easy_localization.dart' show AssetLoader;
+
+class CodegenLoader extends AssetLoader {
+  const CodegenLoader();
+
+  @override
+  Future<Map<String, dynamic>> load(String fullPath, Locale locale) {
+    return Future.value(mapLocales[locale.toString()]);
+  }
+
+  static const Map<String, dynamic> ar = {
+    "signup_button": "انشاء حساب",
+    "login_button": "تسجيل الدخول",
+    "welcom_message": "اهلا , مرحبا بعودتك",
+    "phone": "رقم الهاتف",
+    "country_code": "كود الدولة",
+    "password": "كلمة المرور",
+    "wallet_title": "رصيد الحساب",
+    "wallet_title2": "الرصيد القابل  للسحب",
+    "wallet_title3": "الرصيد المعلق",
+    "forget_password": "نسيت كلمة المرور ؟",
+    "not_have_account": "لست عضوا في مجتمعنا بعد؟",
+    "join": "انضم الان",
+    "full_name": "الاسم بالكامل",
+    "email": "البريد الالكتروني",
+    "create_account": "انشاء حساب",
+    "have_account": "لديك حساب",
+    "log": "تسجيل الدخول",
+    "register_title": "إنشاء حساب والانضمام",
+    "reset_passowrd": "إعادة تعيين كلمة المرور",
+    "forget_message":
+        "ستتلقى بريدًا إلكترونيًا لإعادة تعيين كلمة المرور الخاصة بك",
+    "send_link": "أرسل رابطًا لإعادة تعيين كلمة المرور",
+    "plans_prices": "الخطط والأسعار",
+    "language": "اللغة",
+    "home": "الرئيسية",
+    "message": "الرسائل",
+    "view_profile": "عرض حسابي",
+    "my_profile": "حسابي",
+    "log_out": "تسجيل خروج",
+    "profile": "الملف الشخصي",
+    "name": "الاسم",
+    "country": "الدولة",
+    "verify_password": "اكد كلمة المرور",
+    "update": "تحديث",
+    "delete_account": "حذف الحساب",
+    "select_country": "حدد الدولة",
+    "send_message": "اكتب رسالتك ...",
+    "my_favourite": "مفضلتي",
+    "contact_us": "تواصل معنا",
+    "about_us": "من نحن",
+    "terms_conditions": "الأحكام والشروط",
+    "privacy_policy": "سياسة الخصوصية",
+    "send": "ارسال",
+    "next": "التالي",
+    "start": "ابدء"
+  };
+  static const Map<String, dynamic> en = {
+    "signup_button": "Sign up",
+    "login_button": "Log in",
+    "welcom_message": "Hi , Welcome back",
+    "phone": "Phone number",
+    "country_code": "conutry code",
+    "password": "password",
+    "wallet_title": "account balance",
+    "wallet_title2": "Withdrawable Balance",
+    "wallet_title3": "Suspended balance",
+    "forget_password": "Forget your password ?",
+    "not_have_account": "Not amember of our community yet ? ",
+    "join": "Join now",
+    "student": "Student",
+    "consultant": "Consultant",
+    "full_name": "Full name",
+    "email": "Email",
+    "create_account": "Create Account",
+    "have_account": "Have an Account ",
+    "log": "Login",
+    "register_title": "Create an Account and join",
+    "reset_passowrd": "Reset Password",
+    "forget_message": "you will get an email to reset your password",
+    "send_link": "send link to reset password",
+    "plans_prices": "Plans & prices",
+    "language": "Language",
+    "home": "Home",
+    "message": "Chat",
+    "my_profile": "My profile",
+    "log_out": "Log out",
+    "profile": "Profile",
+    "name": "Name",
+    "country": "Country",
+    "verify_password": "Verify Password",
+    "update": "Update",
+    "delete_account": "Delete Account",
+    "select_country": "Select country",
+    "send_message": "write your message ...",
+    "my_favourite": "My Favourite",
+    "contact_us": "Contact us",
+    "about_us": "About us",
+    "terms_conditions": "Terms and Conditions",
+    "privacy_policy": "Privacy Policy",
+    "send": "Send",
+    "next": "Next",
+    "start": "Start"
+  };
+
+  // static const Map<String, dynamic> tr = {
+  //   "signup_button": "Üye olmak",
+  //   "login_button": "Giriş yapmak",
+  //   "welcom_message": "Merhaba , tekrar hoşgeldiniz",
+  //   "phone": "Telefon numarası",
+  //   "country_code": "ülke kodu",
+  //   "password": "parola",
+  //   "wallet_title": "hesap bakiyesi",
+  //   "wallet_title2": "Çekilebilir Bakiye",
+  //   "wallet_title3": "Askıya alınmış bakiye",
+  //   "forget_password": "Şifreni mi unuttun ?",
+  //   "not_have_account": "Henüz topluluğumuzun bir üyesi değil misiniz?",
+  //   "join": "Şimdi Katıl",
+  //   "full_name": "Ad Soyad",
+  //   "email": "E-posta",
+  //   "create_account": "Hesap oluştur",
+  //   "have_account": "Hesap sahibi ol ",
+  //   "log": "Giriş yapmak",
+  //   "register_title": "Bir Hesap oluşturun ve katılın",
+  //   "reset_passowrd": "Şifreyi yenile",
+  //   "forget_message": "şifrenizi sıfırlamak için bir e-posta alacaksınız",
+  //   "language": "Dil",
+  //   "home": "Ev",
+  //   "message": "İleti",
+  //   "view_profile": "Profili Görüntüle",
+  //   "my_profile": "Benim profilim",
+  //   "log_out": "Çıkış Yap",
+  //   "profile": "Profil",
+  //   "name": "İsim",
+  //   "country": "Ülke",
+  //   "verify_password": "Parolayı Doğrula",
+  //   "update": "Güncelleme",
+  //   "delete_account": "Hesabı sil",
+  //   "select_country": "ülke seç",
+  //   "send_message": "Mesaj gönder ...",
+  //   "my_favourite": "Benim favorim",
+  //   "contact_us": "Bize Ulaşın",
+  //   "about_us": "Hakkımızda",
+  //   "terms_conditions": "Şartlar ve koşullar",
+  //   "privacy_policy": "Gizlilik Politikası",
+  //   "favourite_message": "en sevdiğin öğretmenleri burada görebilirsin",
+  //   "send": "Göndermek",
+  //   "next": "Sonraki",
+  //   "start": "Başlama"
+  // };
+
+  static const Map<String, Map<String, dynamic>> mapLocales = {
+    "en": en,
+    "ar": ar,
+    // "tr": tr,
+  };
+}
