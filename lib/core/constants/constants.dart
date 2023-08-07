@@ -2,7 +2,9 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:maazoon_app/core/router/router.dart';
 import 'package:maazoon_app/core/widgets/custom_buttons_widget.dart';
+import 'package:maazoon_app/presentation/screens/layout/layout.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../widgets/space_widget.dart';
@@ -61,37 +63,57 @@ double screenHeight(context) {
 customAppbar({
   required String title,
   required context,
-  required bool atHome,
 }) {
   return AppBar(
     elevation: 0.0,
-    backgroundColor: Colors.white,
-    centerTitle: true,
+    backgroundColor: MazzoonColor,
+    centerTitle: false,
     automaticallyImplyLeading: false,
     iconTheme: IconThemeData(color: Colorblack),
-    title: Center(
-      child: Text(
-        title,
-        style: headingStyle.copyWith(
-            color: mal3abColor,
-            fontWeight: FontWeight.w700,
-            fontSize: MediaQuery.of(context).size.width * 0.055),
+    title: Text(
+      title,
+      style: headingStyle.copyWith(
+          color: Colors.white,
+          fontWeight: FontWeight.w400,
+          fontSize: MediaQuery.of(context).size.width * 0.055),
+    ),
+    leading: InkWell(
+      onTap: () => Navigator.pop(context),
+      child: Icon(
+        Icons.arrow_back_ios,
+        color: Colors.white,
+        size: screenWidth(context) * 0.055,
       ),
     ),
-    leading: (!atHome)
-        ? Padding(
-            padding: const EdgeInsets.only(left: 20),
-            child: InkWell(
-              onTap: () => Navigator.pop(context),
-              child: const Icon(
-                Icons.arrow_back_ios,
-                color: Colors.black,
-                size: 25,
-              ),
-            ),
-          )
-        : null,
   );
+}
+
+//////////////////////////////////////////////////////////////
+dividerWidget() {
+  return Divider(
+    color: divdercolor,
+    height: 1,
+    thickness: 1,
+  );
+}
+
+////////////////////////////////////////////////////////////////////
+customAppBarLayout({required context, required String title}) {
+  return PreferredSize(
+      preferredSize: Size(screenWidth(context), 90),
+      child: Container(
+        padding: EdgeInsets.only(
+            top: screenHeight(context) * 0.06,
+            right: screenWidth(context) * 0.03),
+        width: screenWidth(context),
+        height: screenHeight(context) * 0.13,
+        color: const Color(0xffF0F0F0),
+        child: Text(
+          title,
+          style: headingStyle.copyWith(
+              color: Colors.black, fontSize: 23, fontWeight: FontWeight.w400),
+        ),
+      ));
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -166,52 +188,58 @@ void dialog(context) {
   );
 }
 
-void dialogMsg(context) {
+void dialogMsg({
+  required context,
+  required void Function() onTap,
+  required String subTitle,
+  bool? isCongrate,
+}) {
   showDialog(
     context: context,
     barrierDismissible: false,
     builder: (BuildContext context) {
       return AlertDialog(
+        insetPadding:
+            EdgeInsets.symmetric(horizontal: screenWidth(context) * 0.032),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(screenWidth(context) * 0.04)),
         title: Column(
           children: [
+            (isCongrate == true)
+                ? Text(
+                    "تهانينا",
+                    textAlign: TextAlign.center,
+                    style: headingStyle.copyWith(
+                        color: const Color(0xff4D4D4D),
+                        fontSize: 16,
+                        // height: 2,
+                        fontWeight: FontWeight.w700),
+                  )
+                : const SizedBox(),
+            const VerticalSpace(value: 1),
             Text(
-              'Challenge Done',
+              subTitle,
+              // "تم تعديل كلمة المرور بنجاح",
               textAlign: TextAlign.center,
               style: headingStyle.copyWith(
-                  color: mal3abColor,
-                  fontSize: 14,
-                  // height: 2,
-                  fontWeight: FontWeight.w700),
+                  color: const Color(0xff4D4D4D),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400),
             ),
-            const VerticalSpace(value: 1),
-            Icon(
-              Icons.check_circle_outline,
-              color: mal3abColor,
-              size: 25,
-            )
+            const VerticalSpace(value: 3),
+            CustomGeneralButton(
+              width: screenWidth(context) * 0.5,
+              text: 'حسنا',
+              height: 45,
+              textColor: Colors.white,
+              // borderColor: MazzoonColor,
+              fontSize: 15,
+              onTap: onTap,
+              color: buttonColor,
+              borderRadius: 10,
+            ),
           ],
         ),
-        content: Text(
-          'Thank you for creating the challenge! Please note that the challenge will not be confirmed unless it is accepted by another user. If any other user creates a challenge at the same time and it is accepted Or Reservation, your challenge will be canceled.',
-          textAlign: TextAlign.start,
-          style: headingStyle.copyWith(
-              color: textColor,
-              fontSize: 12,
-              height: 2,
-              fontWeight: FontWeight.w600),
-        ),
-        actions: [
-          Center(
-            child: CustomGeneralButton(
-                height: screenHeight(context) * 0.04,
-                width: screenWidth(context) * 0.4,
-                textColor: Colors.white,
-                color: mal3abColor,
-                text: 'Ok',
-                onTap: () => Navigator.pop(context)),
-          ),
-          const VerticalSpace(value: 1),
-        ],
       );
     },
   );

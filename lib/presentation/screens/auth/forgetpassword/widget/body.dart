@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:maazoon_app/presentation/screens/auth/reset_password/reset_password_screen.dart';
 import '../../../../../core/constants/colors.dart';
 import '../../../../../core/constants/constants.dart';
 import '../../../../../core/helper/validation.dart';
@@ -17,91 +18,80 @@ class ForgetPasswordBody extends StatefulWidget {
 
 class _ForgetPasswordBodyState extends State<ForgetPasswordBody> {
   final formKey = GlobalKey<FormState>();
-  TextEditingController email = TextEditingController();
-  TextEditingController password = TextEditingController();
-  FocusNode emailFocuse = FocusNode();
-  FocusNode passwordFocuse = FocusNode();
-  bool isVisible = true;
+  TextEditingController phone = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: formKey,
-      child: Stack(
-        children: [
-          Container(
-            margin: EdgeInsets.only(
-                right: screenWidth(context) * 0.2,
-                top: screenHeight(context) * 0.6),
-            child: Image.asset(
-              'asset/icons/ball.png',
-              height: screenHeight(context) * 0.8,
-              width: screenWidth(context) * 2,
-              fit: BoxFit.cover,
-              color: Colors.white,
-            ),
+    return Container(
+      height: screenHeight(context),
+      decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(15), topRight: Radius.circular(15))),
+      child: Form(
+        key: formKey,
+        child: SingleChildScrollView(
+          padding:
+              EdgeInsets.symmetric(horizontal: screenWidth(context) * 0.05),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const VerticalSpace(value: 2.8),
+              Text(
+                'من فضلك ادخل رقم الجوال لارسال الرمز',
+                style: headingStyle.copyWith(
+                    color: MazzoonColor,
+                    fontWeight: FontWeight.w400,
+                    fontSize: screenWidth(context) * 0.045),
+              ),
+              const VerticalSpace(value: 1.5),
+              CustomTextFormField(
+                controller: phone,
+                validator: (value) => validateMobile(value!),
+                label: ' رقم الجوال',
+                inputType: TextInputType.phone,
+              ),
+              const VerticalSpace(value: 1.5),
+              CustomGeneralButton(
+                text: "ارسل الرمز",
+                height: 45,
+                textColor: Colors.white,
+                // borderColor: MazzoonColor,
+                fontSize: 18,
+                onTap: () {
+                  if (formKey.currentState!.validate()) {
+                    // if (colors.length == 2) {
+                    // GetIt.I<AuthCubit>().postRegister(
+                    //     name: fullName.text,
+                    //     phone: phone.text,
+                    //     email: email.text,
+                    //     image: (imageApi != '')
+                    //         ? MultipartFile.fromFileSync(imageApi)
+                    //         : '',
+                    //     password: password.text,
+                    //     city: city.text,
+                    //     place: place.text,
+                    //     colors: colors);
+                    // } else {
+                    // showToast(
+                    //     msg: 'You Must Select two Colors',
+                    //     state: ToastStates.ERROR);
+                    // }
+                    MagicRouter.navigateTo(CodeScreen(
+                        titleAppBar: "نسيت كلمة المرور",
+                        buttonText: "تحقق",
+                        onTap: () => MagicRouter.navigateTo(
+                            const ResetPasswordScreen())));
+                  }
+                },
+                color: buttonColor,
+                borderRadius: 10,
+                // borderColor: Colors.black,
+              ),
+              const VerticalSpace(value: 0.5),
+            ],
           ),
-          SingleChildScrollView(
-            padding:
-                EdgeInsets.symmetric(horizontal: screenWidth(context) * 0.05),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const VerticalSpace(value: 6),
-                SizedBox(
-                  width: screenWidth(context) * 0.75,
-                  // height: 90,
-                  child: Text(
-                    'Forgot Password',
-                    // maxLines: 2,
-                    style: headingStyle.copyWith(
-                        color: Colors.white,
-                        fontSize: 25,
-                        fontWeight: FontWeight.w700),
-                  ),
-                ),
-                const VerticalSpace(value: 20),
-                CustomTextFormField(
-                  controller: email,
-                  validator: (value) => validateMobile(value!),
-                  focusNode: emailFocuse,
-                  hint: 'Mobile Phone',
-                  inputType: TextInputType.number,
-                ),
-                const VerticalSpace(value: 3),
-                CustomGeneralButton(
-                  text: 'Send',
-                  height: 45,
-                  textColor: Colors.white,
-                  borderColor: goldColor,
-                  fontSize: 18,
-                  onTap: () {
-                    if (formKey.currentState!.validate()) {
-                      MagicRouter.navigateTo(const CodeScreen(isfromregister: false,));
-
-                      // GetIt.I<AuthCubit>().postLogin(
-                      //     email: email.text, password: password.text);
-
-                    }
-                  },
-                  color: goldColor,
-                  borderRadius: 25,
-                )
-
-                // BlocConsumer<AuthCubit, AuthState>(
-                //   bloc: GetIt.I<AuthCubit>(),
-                //   listener: (context, state) {},
-                //   builder: (context, state) {
-                //     return (state is! LoginLoadingState)
-                //         ?
-
-                //         : loading(Colors.white);
-                //   },
-                // ),
-              ],
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }

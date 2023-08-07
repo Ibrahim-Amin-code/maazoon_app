@@ -5,13 +5,9 @@ import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
 
 import 'package:maazoon_app/core/constants/colors.dart';
-import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
-import '../../../core/constants/constants.dart';
-
-import '../auth/cubit/auth_cubit.dart';
-import '../home/cubit/stadium_cubit.dart';
+import 'package:maazoon_app/presentation/screens/more/more_screen.dart';
 import '../home/home.dart';
-import '../profile/profile.dart';
+import '../my_reservation/my_reservation_screen.dart';
 
 class LayoutScreen extends StatefulWidget {
   final int? index;
@@ -22,162 +18,71 @@ class LayoutScreen extends StatefulWidget {
 }
 
 class _LayoutScreenState extends State<LayoutScreen> {
-  PersistentTabController? controller;
-  int currentIndex = 0;
+  int _selectedIndex = 0;
 
-  List<PersistentBottomNavBarItem> _navBarsItems() {
-    return [
-      PersistentBottomNavBarItem(
-        icon: const Icon(
-          CupertinoIcons.home,
-          size: 25,
-        ),
-        title: "Home",
-        textStyle: const TextStyle(fontSize: 11),
-        activeColorPrimary: mal3abColor,
-        inactiveColorPrimary: Colors.grey,
-      ),
-      PersistentBottomNavBarItem(
-        icon: const Icon(
-          Icons.list_alt,
-          size: 25,
-        ),
-        title: "challenges",
-        textStyle: const TextStyle(fontSize: 11),
-        activeColorPrimary: mal3abColor,
-        inactiveColorPrimary: Colors.grey,
-      ),
-      // PersistentBottomNavBarItem(
-      //   // iconSize: 30,
-      //   icon: const Icon(
-      //     Icons.add_circle,
-      //     size: 25,
-      //     color: Colors.white,
-      //   ),
-      //   title: "Add",
-      // textStyle: const TextStyle(fontSize: 11),
-      //activeColorPrimary: mal3abColor,
-      //   inactiveColorPrimary: Colors.grey,
-      // ),
-      PersistentBottomNavBarItem(
-        icon: const Icon(
-          CupertinoIcons.sportscourt,
-          size: 25,
-        ),
-        title: "League",
-        textStyle: const TextStyle(fontSize: 11),
-        activeColorPrimary: mal3abColor,
-        inactiveColorPrimary: Colors.grey,
-      ),
-      PersistentBottomNavBarItem(
-        icon: const Icon(
-          CupertinoIcons.profile_circled,
-          size: 25,
-        ),
-        title: "Profile",
-        textStyle: const TextStyle(fontSize: 11),
-        iconSize: screenWidth(context) * 0.3,
-        activeColorPrimary: mal3abColor,
-        inactiveColorPrimary: Colors.grey,
-      ),
-    ];
-  }
+  static const List<Widget> screens = <Widget>[
+    HomePage(),
+    MyResrvationScreen(),
+    MoreScreen(),
+  ];
 
-  List<Widget> _buildScreens() {
-    return  [
-      const HomePage(),
-      Container(),
-      // ReservationScreen(),
-      // LeagueScreen(),
-      Container(),
-
-      UserProfileScreen()
-    ];
-  }
-
-  @override
-  void initState() {
-    controller = PersistentTabController(initialIndex: widget.index ?? 0);
-    // GetIt.I<AuthCubit>().getProfile();
-   
-    super.initState();
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        toolbarHeight: 0.0,
-        systemOverlayStyle: const SystemUiOverlayStyle(
-          statusBarColor: Colors.white,
-          statusBarIconBrightness: Brightness.dark,
-          systemNavigationBarIconBrightness: Brightness.dark,
-        ),
+      // appBar: AppBar(
+      //   elevation: 0,
+      //   backgroundColor: Colors.transparent,
+      //   toolbarHeight: 0.0,
+      //   systemOverlayStyle: const SystemUiOverlayStyle(
+      //     statusBarColor: Colors.transparent,
+      //     statusBarIconBrightness: Brightness.dark,
+      //     systemNavigationBarIconBrightness: Brightness.dark,
+      //   ),
+      // ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: const Color(0xffF0F0F0),
+        selectedLabelStyle: const TextStyle(),
+        elevation: 0.0,
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: _selectedIndex == 0
+                ? Image.asset(
+                    'asset/images/Vector (1).png',
+                  )
+                : Image.asset(
+                    'asset/images/Home Angle 2.png',
+                  ),
+            label: 'الرئيسية',
+          ),
+          BottomNavigationBarItem(
+            icon: _selectedIndex == 1
+                ? Image.asset(
+                    'asset/images/Calendar1.png',
+                  )
+                : Image.asset(
+                    'asset/images/Calendar.png',
+                  ),
+            label: 'حجوزاتي',
+          ),
+          BottomNavigationBarItem(
+            icon: _selectedIndex == 2
+                ? Image.asset('asset/images/Widget 22.png')
+                : Image.asset('asset/images/Widget 2.png'),
+            label: 'المزيد',
+          ),
+        ],
+        selectedItemColor: MazzoonColor,
+        onTap: _onItemTapped,
+        currentIndex: _selectedIndex,
       ),
-      body: PersistentTabView(
-        context,
-        controller: controller,
-        screens: _buildScreens(),
-        items: _navBarsItems(),
-        onItemSelected: (value) {
-          setState(() {
-            currentIndex = value;
-          });
-
-          if (value == 3) {
-          //   GetIt.I<AuthCubit>().getProfile();
-
-          //   GetIt.I<ReservationCubit>().allReservations();
-          //   GetIt.I<ReservationCubit>().myRequests();
-          // } else if (value == 2) {
-          //   GetIt.I<LeagueCubit>().getAllLeagues();
-          // } else if (value == 1) {
-          //   GetIt.I<ReservationCubit>().allChallenges();
-          //   GetIt.I<ReservationCubit>().myChallenge();
-          // } else if (value == 0) {
-          //   GetIt.I<AuthCubit>().getProfile();
-          // }
-          // else if (value == 0) {
-          //   GetIt.I<StadiumCubit>().getAllStadium();
-          //   // GetIt.I<SettingCubit>().getSettingData();
-          // }
-          // else if (value == 0) {
-          //     GetIt.I<ProfileCubit>().getUserProfile();
-          //   }
-          // } else {
-          //   if (value == 2) {
-          //     GetIt.I<SettingCubit>().getCustomPage();
-          //     GetIt.I<SettingCubit>().getSettingData();
-          //   } else if (value == 1 || value == 3 || value == 0) {
-          //     GetIt.I<ProfileCubit>().getUserProfile();
-          }
-        },
-        confineInSafeArea: true,
-        backgroundColor: Colors.white,
-        popAllScreensOnTapAnyTabs: true,
-        handleAndroidBackButtonPress: true,
-        resizeToAvoidBottomInset: true,
-        stateManagement: true,
-        hideNavigationBarWhenKeyboardShows: false,
-        decoration: const NavBarDecoration(
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(10.0), topRight: Radius.circular(10.0)),
-          colorBehindNavBar: Colors.white,
-        ),
-        popAllScreensOnTapOfSelectedTab: true,
-        popActionScreens: PopActionScreensType.all,
-        itemAnimationProperties: const ItemAnimationProperties(
-          duration: Duration(milliseconds: 200),
-          curve: Curves.ease,
-        ),
-        screenTransitionAnimation: const ScreenTransitionAnimation(
-          animateTabTransition: true,
-          curve: Curves.ease,
-          duration: Duration(milliseconds: 200),
-        ),
-        navBarStyle: NavBarStyle.style6,
+      body: Center(
+        child: screens.elementAt(_selectedIndex),
       ),
     );
   }

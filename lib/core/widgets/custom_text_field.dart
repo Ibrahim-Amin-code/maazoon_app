@@ -20,6 +20,8 @@ class CustomTextFormField extends StatelessWidget {
     this.label,
     this.controller,
     this.borderSideColor,
+    this.borderSideColor2,
+
     this.suffix,
     this.suffixPressed,
     this.prefix,
@@ -48,6 +50,8 @@ class CustomTextFormField extends StatelessWidget {
   final Color? hintColor;
   final Color? errorTextColor;
   final Color? borderSideColor;
+  final Color? borderSideColor2;
+
   final Color? fillColor;
   // final bool? isLTR;
   final FormFieldValidator<String>? validator;
@@ -72,20 +76,24 @@ class CustomTextFormField extends StatelessWidget {
       maxLines: maxLines ?? 1,
       style: headingStyle.copyWith(color: colordeepGrey, fontSize: 20),
       onEditingComplete: onEditingComplete,
-      cursorColor: colorLightGrey,
+      cursorColor: Colors.grey.shade400,
       decoration: InputDecoration(
-        contentPadding: const EdgeInsets.fromLTRB(15, 8, 8, 8),
+        alignLabelWithHint: true,
+        labelStyle: headingStyle.copyWith(color: hintColor, fontSize: 16),
+        labelText: label,
+        contentPadding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
         hintText: hint,
-        errorStyle:
-            headingStyle.copyWith(color: errorTextColor ?? Colors.white),
+        errorStyle: headingStyle.copyWith(
+            color: errorTextColor ?? Colors.red,
+            fontSize: screenWidth(context) * 0.035),
         hintStyle: headingStyle.copyWith(
             color: hintColor ?? mal3abColor,
             //  colordeepGrey.withOpacity(0.3),
             fontSize: 16),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(28),
+          borderRadius: BorderRadius.circular(20),
           borderSide: BorderSide(
-            color: goldColor,
+            color:  borderSideColor2 ?? goldColor,
           ),
         ),
         suffixIcon: suffix ?? null,
@@ -93,12 +101,12 @@ class CustomTextFormField extends StatelessWidget {
         filled: true,
         fillColor: fillColor ?? Colors.white,
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(25),
+          borderRadius: BorderRadius.circular(20),
           borderSide: BorderSide(
               color: borderSideColor ?? colorBorder.withOpacity(0.4)),
         ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(25),
+          borderRadius: BorderRadius.circular(20),
           borderSide: BorderSide(color: colorBorder.withOpacity(0.4)),
         ),
       ),

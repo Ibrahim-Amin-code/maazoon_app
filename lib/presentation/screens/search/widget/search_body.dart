@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
+import 'package:maazoon_app/core/constants/colors.dart';
+import 'package:maazoon_app/core/widgets/custom_drop_down.dart';
+import 'package:maazoon_app/core/widgets/space_widget.dart';
+import 'package:maazoon_app/presentation/screens/home/widget/home_widgets.dart';
+import 'package:maazoon_app/presentation/screens/search/widget/search_widget.dart';
 
-import '../../../../core/constants/colors.dart';
 import '../../../../core/constants/constants.dart';
-import '../../../../core/router/router.dart';
-import '../../../../core/widgets/custom_text_field.dart';
-import '../../../../core/widgets/space_widget.dart';
-import '../../home/widget/home_page_body.dart';
 
 class SearchBody extends StatefulWidget {
   const SearchBody({super.key});
@@ -19,106 +17,152 @@ class SearchBody extends StatefulWidget {
 class _SearchBodyState extends State<SearchBody> {
   bool search = false;
 
+  TextEditingController? searchController;
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      padding: EdgeInsets.symmetric(
-          horizontal: screenWidth(context) * 0.03,
-          vertical: screenHeight(context) * 0.02),
-      child: Column()
-      // Column(
-      //   crossAxisAlignment: CrossAxisAlignment.center,
-      //   children: [
-      //     const VerticalSpace(value: 1.5),
-      //     Padding(
-      //       padding:
-      //           EdgeInsets.symmetric(horizontal: screenWidth(context) * 0.04),
-      //       child: CustomTextFormField(
-      //         prefix: Icon(
-      //           Icons.search,
-      //           color: mal3abColor,
-      //         ),
-      //         onChanged: (value) {
-      //           if (value != null && value != '') {
-      //             setState(() {
-      //               search = true;
-      //             });
-      //             GetIt.I<StadiumCubit>().searchStadium(name: value);
-      //           } else {
-      //             setState(() {
-      //               search = false;
-      //             });
-      //           }
-      //         },
-      //         hint: 'Search',
-      //         inputType: TextInputType.text,
-      //       ),
-      //     ),
-      //     const VerticalSpace(value: 1.5),
-      //     BlocConsumer<StadiumCubit, StadiumState>(
-      //       listener: (context, state) {},
-      //       bloc: GetIt.I<StadiumCubit>(),
-      //       builder: (context, state) {
-      //         return (state is! SearchStadiumLoadingState &&
-      //                 GetIt.I<StadiumCubit>().searchStadiumModel != null &&
-      //                 search)
-      //             ? ListView.separated(
-      //                 primary: false,
-      //                 shrinkWrap: true,
-      //                 itemBuilder: (context, index) => buildStadiumWidget(
-      //                     context: context,
-      //                     image: GetIt.I<StadiumCubit>()
-      //                         .searchStadiumModel!
-      //                         .stadiums![index]
-      //                         .image!,
-      //                     price: GetIt.I<StadiumCubit>()
-      //                         .searchStadiumModel!
-      //                         .stadiums![index]
-      //                         .priceHourly!,
-      //                     stadiumName: GetIt.I<StadiumCubit>()
-      //                         .searchStadiumModel!
-      //                         .stadiums![index]
-      //                         .title!,
-      //                     rateNum: double.parse(GetIt.I<StadiumCubit>()
-      //                         .searchStadiumModel!
-      //                         .stadiums![index]
-      //                         .rate!
-      //                         .toString()),
-      //                     stadiumPlace: GetIt.I<StadiumCubit>()
-      //                         .searchStadiumModel!
-      //                         .stadiums![index]
-      //                         .city!,
-      //                     onTap: () => GetIt.I<StadiumCubit>()
-      //                             .getStadiumDetail(
-      //                                 date: '',
-      //                                 stadiumId: GetIt.I<StadiumCubit>()
-      //                                     .searchStadiumModel!
-      //                                     .stadiums![index]
-      //                                     .id!,
-      //                                 context: context)
-      //                             .then((value) {
-      //                           navigateTo(
-      //                               page: const ReservationScreen(
-      //                                 dateApi: null,
-      //                                 timeIdApi: null,
-      //                                 reservationId: null,
-      //                                 index: null,
-      //                               ),
-      //                               context: context);
-      //                         })),
-      //                 separatorBuilder: (context, index) =>
-      //                     const VerticalSpace(value: 1),
-      //                 itemCount: GetIt.I<StadiumCubit>()
-      //                     .searchStadiumModel!
-      //                     .stadiums!
-      //                     .length)
-      //             : const SizedBox();
-      //       },
-      //     )
-      //   ],
-      // ),
-    
-    
+    return Container(
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+      ),
+      width: double.infinity,
+      height: screenHeight(context),
+      child: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(horizontal: screenWidth(context) * 0.04),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const VerticalSpace(value: 2),
+            SearchWidget(
+              controller: searchController,
+              filterOnTap: () {
+                homeBottomSheet(
+                  context: context,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(
+                        vertical: screenHeight(context) * 0.02),
+                    height: screenHeight(context) * 0.65,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.center,
+                        colors: [
+                          gradColor.withOpacity(0.4),
+                          Colors.white,
+                          Colors.white,
+                          Colors.white,
+                          Colors.white,
+                          Colors.white,
+                        ],
+                      ),
+                      borderRadius: BorderRadius.only(
+                          topLeft:
+                              Radius.circular(screenWidth(context) * 0.075),
+                          topRight:
+                              Radius.circular(screenWidth(context) * 0.075)),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Center(
+                            child: Image.asset(
+                                'asset/images/Rectangle 40144.png')),
+                        const VerticalSpace(value: 1),
+                        // Row(
+                        //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        //   children: [
+                        //     Text("التصفية",
+                        //         style: headingStyle.copyWith(
+                        //             color: textColo2,
+                        //             fontSize: 23,
+                        //             fontWeight: FontWeight.w400)),
+                        //     Icon(
+                        //       Icons.keyboard_arrow_down,
+                        //       size: screenWidth(context) * 0.075,
+                        //     )
+                        //   ],
+                        // ),
+                        const VerticalSpace(value: 0.8),
+                        ExpansionTile(
+                            iconColor: textColo2,
+                            title: Text("تصفية حسب المكان",
+                                style: headingStyle.copyWith(
+                                    color: textColo2,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w700)),
+                            children: [
+                              const VerticalSpace(value: 0.6),
+                              CustomDropDown(
+                                text: " البلد",
+                                borderColor: verticalDivider1,
+                                fillColor: Colors.transparent,
+                              ),
+                              const VerticalSpace(value: 1.5),
+                              CustomDropDown(
+                                text: " المدينة",
+                                borderColor: verticalDivider1,
+                                fillColor: Colors.transparent,
+                              ),
+                              const VerticalSpace(value: 1.5),
+                              CustomDropDown(
+                                text: " الحي",
+                                borderColor: verticalDivider1,
+                                fillColor: Colors.transparent,
+                              ),
+                            ])
+                        // Row(
+                        //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        //   children: [
+                        // Text("تصفية حسب المكان",
+                        //     style: headingStyle.copyWith(
+                        //         color: textColo2,
+                        //         fontSize: 18,
+                        //         fontWeight: FontWeight.w700)),
+                        // Icon(
+                        //       Icons.keyboard_arrow_down,
+                        //       size: screenWidth(context) * 0.075,
+                        //     ),
+                        //   ],
+                        // ),
+                        // const VerticalSpace(value: 0.6),
+                        // CustomDropDown(
+                        //   text: " البلد",
+                        //   borderColor: verticalDivider1,
+                        //   fillColor: Colors.transparent,
+                        // ),
+                        // const VerticalSpace(value: 1.5),
+                        // CustomDropDown(
+                        //   text: " المدينة",
+                        //   borderColor: verticalDivider1,
+                        //   fillColor: Colors.transparent,
+                        // ),
+                        // const VerticalSpace(value: 1.5),
+                        // CustomDropDown(
+                        //   text: " الحي",
+                        //   borderColor: verticalDivider1,
+                        //   fillColor: Colors.transparent,
+                        // ),
+                        // const VerticalSpace(value: 1.5),
+                      ],
+                    ),
+                  ),
+                );
+              },
+              searchOnTap: () {},
+            ),
+            const VerticalSpace(value: 2),
+            ListView.separated(
+                shrinkWrap: true,
+                primary: false,
+                itemBuilder: (context, index) => const SheikhMazzoonCard(),
+                separatorBuilder: (context, index) =>
+                    const VerticalSpace(value: 1.5),
+                itemCount: 8),
+            const VerticalSpace(value: 2),
+          ],
+        ),
+      ),
     );
   }
 }

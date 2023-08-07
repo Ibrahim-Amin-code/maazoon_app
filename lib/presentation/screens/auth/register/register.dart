@@ -15,33 +15,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          elevation: 0.0,
-          backgroundColor: MazzoonColor,
-          centerTitle: true,
-          automaticallyImplyLeading: false,
-          iconTheme: IconThemeData(color: Colorblack),
-          title: Text(
-            'انشاء حساب  جديد',
-            style: headingStyle.copyWith(
-                color: Colors.white,
-                fontWeight: FontWeight.w700,
-                fontSize: MediaQuery.of(context).size.width * 0.055),
-          ),
-          actions:
-              // (!atHome)
-              // ?
-              [
-            InkWell(
-              onTap: () => Navigator.pop(context),
-              child: Image.asset(
-                'asset/images/Alt Arrow Right.png',
-                width: 30,
-              ),
-            ),
-          ]
-          // : null,
-          ),
+      backgroundColor: MazzoonColor,
+      appBar: customAppbar(
+        title: 'انشاء حساب  جديد',
+        context: context,
+      ),
       body: const RegisterBody(),
     );
   }

@@ -21,14 +21,31 @@ Locale _locale(String languageCode) {
     // default:
     //   temp = const Locale('ar', '');
     default:
-      temp = const Locale('en', '');
-  
+      temp = const Locale('ar', '');
   }
   return temp;
 }
 
+// Future<Locale> getLocale() async {
+//   Locale temp;
+//   if()
+//   String languageCode = prefs.getString('lang') ?? "ar";
+//   return temp = _locale(languageCode);
+// }
+
+
 Future<Locale> getLocale() async {
   Locale temp;
-  String languageCode = prefs.getString('lang') ?? "en";
-  return temp = _locale(languageCode);
+  if (prefs.getString('lang') != null) {
+    String languageCode = prefs.getString('lang')!;
+    return temp = _locale(languageCode);
+  } else {
+    prefs.setString('lang', "ar");
+    prefs.setString(
+      "language",
+      "اللغة العربية",
+    );
+    String languageCode = "ar";
+    return temp = _locale(languageCode);
+  }
 }

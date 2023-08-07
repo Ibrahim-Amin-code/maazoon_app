@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
+import 'package:maazoon_app/core/constants/colors.dart';
+import 'package:maazoon_app/core/constants/constants.dart';
+import 'package:maazoon_app/core/router/router.dart';
 import 'package:maazoon_app/presentation/screens/home/widget/home_page_body.dart';
+import 'package:maazoon_app/presentation/screens/home/widget/home_widgets.dart';
 
+import '../notification/notification_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -12,16 +16,25 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   @override
-  // void initState() {
-  //   GetIt.I<AuthCubit>().getProfile();
-
-  //   super.initState();
-  // }
-
-  @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: HomeBody(),
+    return Stack(
+
+      children: [
+        Scaffold(
+          
+          appBar: PreferredSize(
+              preferredSize: Size(
+                screenWidth(context),
+                screenHeight(context) * 0.3,
+              ),
+              child: BuildNotificationRow(
+                onTap: () => MagicRouter.navigateTo(const NotificationScreen()),
+              )),
+          backgroundColor: MazzoonColor,
+          body: const HomeBody(),
+        ),
+        const IntroImage(),
+      ],
     );
   }
 }

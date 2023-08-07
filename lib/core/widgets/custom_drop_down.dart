@@ -34,9 +34,9 @@ class _CustomDropDownState extends State<CustomDropDown> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(6),
+        borderRadius: BorderRadius.circular(15),
         border: (widget.borderColor == null)
-            ? Border.all(color: colorGrey.withOpacity(0.2))
+            ? Border.all(color: colorGrey3.withOpacity(0.2))
             : Border.all(color: widget.borderColor!),
         color: widget.fillColor!,
       ),
@@ -44,7 +44,7 @@ class _CustomDropDownState extends State<CustomDropDown> {
       child: DropdownButtonFormField(
         icon: Icon(
           Icons.keyboard_arrow_down,
-          color: colorGrey,
+          color: colorGrey3,
           size: 30,
         ),
         iconEnabledColor: const Color.fromRGBO(148, 148, 148, 1),
@@ -57,14 +57,14 @@ class _CustomDropDownState extends State<CustomDropDown> {
             value: value,
             child: Text(
               value,
-              style: headingStyle.copyWith(color: colordeepGrey, fontSize: 12),
+              style: headingStyle.copyWith(color: colorGrey3, fontSize: 14),
             ),
           );
         }).toList(),
         hint: Text(
           widget.text,
           style: headingStyle.copyWith(
-              color: colorGrey, fontSize: screenWidth(context) * 0.03),
+              color: colorGrey3, fontSize: screenWidth(context) * 0.04),
         ),
         onChanged: (String? value) {
           setState(() {

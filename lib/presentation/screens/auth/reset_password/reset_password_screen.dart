@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:maazoon_app/presentation/screens/auth/reset_password/widget/reset_password_body.dart';
 
 import '../../../../core/constants/colors.dart';
+import '../../../../core/constants/constants.dart';
 
 class ResetPasswordScreen extends StatefulWidget {
   const ResetPasswordScreen({super.key});
@@ -13,13 +14,13 @@ class ResetPasswordScreen extends StatefulWidget {
 class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-          image: DecorationImage(image: AssetImage('asset/icons/ground.png'))),
-      child: Scaffold(
-        backgroundColor: mal3abColor.withOpacity(0.8),
-        body: const ResetPasswordBody(),
+    return Scaffold(
+      backgroundColor: MazzoonColor,
+      appBar: customAppbar(
+        title: 'نسيت كلمة المرور',
+        context: context,
       ),
+      body:  const ResetPasswordBody()
     );
   }
 }

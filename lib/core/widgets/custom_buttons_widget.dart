@@ -28,7 +28,6 @@ class CustomGeneralButton extends StatelessWidget {
   final double? height;
   final double? width;
   final double? borderRadius;
-
   final Color? textColor;
   final Color? borderColor;
   final bool? withBorder;
@@ -55,7 +54,7 @@ class CustomGeneralButton extends StatelessWidget {
                 child: Text(
                   text,
                   style: headingStyle.copyWith(
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w600,
                     color: textColor ?? textColor,
                     fontSize: fontSize ?? screenWidth(context) * 0.04,
                   ),
