@@ -1,9 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
+import 'package:maazoon_app/presentation/cubit/app_cubit.dart';
 import 'package:maazoon_app/presentation/screens/search/widget/search_widget.dart';
-
+import 'package:syncfusion_flutter_sliders/sliders.dart';
 import '../../../../core/constants/colors.dart';
 import '../../../../core/constants/constants.dart';
 import '../../../../core/widgets/custom_drop_down.dart';
@@ -19,8 +19,10 @@ class SearchByName extends StatefulWidget {
 
 class _SearchByNameState extends State<SearchByName> {
   bool search = false;
-
   TextEditingController? searchController;
+  // SfRangeValues _values = const SfRangeValues(1, 0);
+  double _value = 5.0;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -62,6 +64,77 @@ class _SearchByNameState extends State<SearchByName> {
                           child:
                               Image.asset('asset/images/Rectangle 40144.png')),
                       const VerticalSpace(value: 1),
+                      expansionTileFittler(name: "تصفية حسب المكان", children: [
+                        SfSlider(
+                          min: 1.0,
+                          max: 5.0,
+                          value: _value,
+                          interval: 1,
+                          showTicks: true,
+                          showLabels: true,
+                          activeColor: MazzoonColor,
+                          inactiveColor: MazzoonColor.withOpacity(0.5),
+
+                          // enableTooltip: true,
+                          // minorTicksPerInterval: 1,
+                          onChanged: (dynamic value) {
+                            setState(() {
+                              _value = value;
+                            });
+                          },
+                        ),
+                        const VerticalSpace(value: 0.6),
+                        CustomDropDown(
+                          text: " البلد",
+                          borderColor: verticalDivider1,
+                          fillColor: Colors.transparent,
+                        ),
+                        const VerticalSpace(value: 1.5),
+                        CustomDropDown(
+                          text: " المدينة",
+                          borderColor: verticalDivider1,
+                          fillColor: Colors.transparent,
+                        ),
+                        const VerticalSpace(value: 1.5),
+                        CustomDropDown(
+                          text: " الحي",
+                          borderColor: verticalDivider1,
+                          fillColor: Colors.transparent,
+                        ),
+                      ])
+                    ],
+                  ),
+                ),
+              );
+            },
+            searchOnTap: () {},
+          ),
+          const VerticalSpace(value: 2),
+          ListView.separated(
+              shrinkWrap: true,
+              primary: false,
+              itemBuilder: (context, index) => const SheikhMazzoonCard(),
+              separatorBuilder: (context, index) =>
+                  const VerticalSpace(value: 1.5),
+              itemCount: 8),
+          const VerticalSpace(value: 2),
+        ],
+      ),
+    );
+  }
+
+//
+  Widget expansionTileFittler(
+          {required String name, required List<Widget> children}) =>
+      ExpansionTile(
+          iconColor: textColo2,
+          title: Text(name,
+              style: headingStyle.copyWith(
+                  color: textColo2, fontSize: 18, fontWeight: FontWeight.w700)),
+          children: children);
+}
+
+  
                       // Row(
                       //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       //   children: [
@@ -76,35 +149,12 @@ class _SearchByNameState extends State<SearchByName> {
                       //     )
                       //   ],
                       // ),
-                      const VerticalSpace(value: 0.8),
-                      ExpansionTile(
-                          iconColor: textColo2,
-                          title: Text("تصفية حسب المكان",
-                              style: headingStyle.copyWith(
-                                  color: textColo2,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w700)),
-                          children: [
-                            const VerticalSpace(value: 0.6),
-                            CustomDropDown(
-                              text: " البلد",
-                              borderColor: verticalDivider1,
-                              fillColor: Colors.transparent,
-                            ),
-                            const VerticalSpace(value: 1.5),
-                            CustomDropDown(
-                              text: " المدينة",
-                              borderColor: verticalDivider1,
-                              fillColor: Colors.transparent,
-                            ),
-                            const VerticalSpace(value: 1.5),
-                            CustomDropDown(
-                              text: " الحي",
-                              borderColor: verticalDivider1,
-                              fillColor: Colors.transparent,
-                            ),
-                          ])
-                      // Row(
+
+
+
+
+
+ // Row(
                       //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       //   children: [
                       // Text("تصفية حسب المكان",
@@ -137,24 +187,4 @@ class _SearchByNameState extends State<SearchByName> {
                       //   fillColor: Colors.transparent,
                       // ),
                       // const VerticalSpace(value: 1.5),
-                    ],
-                  ),
-                ),
-              );
-            },
-            searchOnTap: () {},
-          ),
-          const VerticalSpace(value: 2),
-          ListView.separated(
-              shrinkWrap: true,
-              primary: false,
-              itemBuilder: (context, index) => const SheikhMazzoonCard(),
-              separatorBuilder: (context, index) =>
-                  const VerticalSpace(value: 1.5),
-              itemCount: 8),
-          const VerticalSpace(value: 2),
-        ],
-      ),
-    );
-  }
-}
+                   
