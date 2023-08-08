@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/constants/colors.dart';
-import 'package:maazoon_app/core/widgets/custom_drop_down.dart';
-import 'package:maazoon_app/core/widgets/space_widget.dart';
-import 'package:maazoon_app/presentation/screens/home/widget/home_widgets.dart';
-import 'package:maazoon_app/presentation/screens/search/widget/search_widget.dart';
-
+import 'package:maazoon_app/presentation/screens/search/widget/search_name.dart';
 import '../../../../core/constants/constants.dart';
+import '../../../../core/widgets/space_widget.dart';
 
 class SearchBody extends StatefulWidget {
-  const SearchBody({super.key});
+  const SearchBody({super.key, required this.index});
+  final int? index;
 
   @override
   State<SearchBody> createState() => _SearchBodyState();
@@ -18,6 +16,22 @@ class _SearchBodyState extends State<SearchBody> {
   bool search = false;
 
   TextEditingController? searchController;
+  List<String> titles = ['ليستة', 'الخريطة'];
+  int currentIndex = 0;
+
+  @override
+  void initState() {
+    if (widget.index != null) {
+      setState(() {
+        currentIndex = widget.index!;
+      });
+    } else {
+      setState(() {
+        currentIndex = 0;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,140 +43,62 @@ class _SearchBodyState extends State<SearchBody> {
       width: double.infinity,
       height: screenHeight(context),
       child: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: screenWidth(context) * 0.04),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const VerticalSpace(value: 2),
-            SearchWidget(
-              controller: searchController,
-              filterOnTap: () {
-                homeBottomSheet(
-                  context: context,
-                  child: Container(
-                    padding: EdgeInsets.symmetric(
-                        vertical: screenHeight(context) * 0.02),
-                    height: screenHeight(context) * 0.65,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.center,
-                        colors: [
-                          gradColor.withOpacity(0.4),
-                          Colors.white,
-                          Colors.white,
-                          Colors.white,
-                          Colors.white,
-                          Colors.white,
-                        ],
-                      ),
-                      borderRadius: BorderRadius.only(
-                          topLeft:
-                              Radius.circular(screenWidth(context) * 0.075),
-                          topRight:
-                              Radius.circular(screenWidth(context) * 0.075)),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Center(
-                            child: Image.asset(
-                                'asset/images/Rectangle 40144.png')),
-                        const VerticalSpace(value: 1),
-                        // Row(
-                        //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        //   children: [
-                        //     Text("التصفية",
-                        //         style: headingStyle.copyWith(
-                        //             color: textColo2,
-                        //             fontSize: 23,
-                        //             fontWeight: FontWeight.w400)),
-                        //     Icon(
-                        //       Icons.keyboard_arrow_down,
-                        //       size: screenWidth(context) * 0.075,
-                        //     )
-                        //   ],
-                        // ),
-                        const VerticalSpace(value: 0.8),
-                        ExpansionTile(
-                            iconColor: textColo2,
-                            title: Text("تصفية حسب المكان",
-                                style: headingStyle.copyWith(
-                                    color: textColo2,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w700)),
-                            children: [
-                              const VerticalSpace(value: 0.6),
-                              CustomDropDown(
-                                text: " البلد",
-                                borderColor: verticalDivider1,
-                                fillColor: Colors.transparent,
-                              ),
-                              const VerticalSpace(value: 1.5),
-                              CustomDropDown(
-                                text: " المدينة",
-                                borderColor: verticalDivider1,
-                                fillColor: Colors.transparent,
-                              ),
-                              const VerticalSpace(value: 1.5),
-                              CustomDropDown(
-                                text: " الحي",
-                                borderColor: verticalDivider1,
-                                fillColor: Colors.transparent,
-                              ),
-                            ])
-                        // Row(
-                        //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        //   children: [
-                        // Text("تصفية حسب المكان",
-                        //     style: headingStyle.copyWith(
-                        //         color: textColo2,
-                        //         fontSize: 18,
-                        //         fontWeight: FontWeight.w700)),
-                        // Icon(
-                        //       Icons.keyboard_arrow_down,
-                        //       size: screenWidth(context) * 0.075,
-                        //     ),
-                        //   ],
-                        // ),
-                        // const VerticalSpace(value: 0.6),
-                        // CustomDropDown(
-                        //   text: " البلد",
-                        //   borderColor: verticalDivider1,
-                        //   fillColor: Colors.transparent,
-                        // ),
-                        // const VerticalSpace(value: 1.5),
-                        // CustomDropDown(
-                        //   text: " المدينة",
-                        //   borderColor: verticalDivider1,
-                        //   fillColor: Colors.transparent,
-                        // ),
-                        // const VerticalSpace(value: 1.5),
-                        // CustomDropDown(
-                        //   text: " الحي",
-                        //   borderColor: verticalDivider1,
-                        //   fillColor: Colors.transparent,
-                        // ),
-                        // const VerticalSpace(value: 1.5),
-                      ],
-                    ),
-                  ),
-                );
-              },
-              searchOnTap: () {},
+            Row(
+              children: List.generate(
+                  titles.length,
+                  (index) => buildOptions(
+                        index: index,
+                      )),
             ),
-            const VerticalSpace(value: 2),
-            ListView.separated(
-                shrinkWrap: true,
-                primary: false,
-                itemBuilder: (context, index) => const SheikhMazzoonCard(),
-                separatorBuilder: (context, index) =>
-                    const VerticalSpace(value: 1.5),
-                itemCount: 8),
-            const VerticalSpace(value: 2),
+            (currentIndex == 0) ? const SearchByName() : Container()
           ],
         ),
       ),
+    );
+  }
+
+  AnimatedContainer buildOptions({
+    required int index,
+  }) {
+    return AnimatedContainer(
+      width: screenWidth(context) * 0.49,
+      // height: 50,
+      margin: EdgeInsets.symmetric(horizontal: screenWidth(context) * 0.004),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        color: Colors.transparent,
+      ),
+      duration: const Duration(milliseconds: 200),
+      child: InkWell(
+          onTap: () {
+            setState(() {
+              currentIndex = index;
+            });
+          },
+          child: Container(
+            width: 200,
+            height: screenHeight(context) * 0.06,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+
+              color: currentIndex == index
+                  ? const Color(0xff34593B).withOpacity(0.9)
+                  : const Color(0xff34593B).withOpacity(0.2),
+              // borderRadius: BorderRadius.circular(5),
+            ),
+            child: Center(
+                child: Text(
+              titles[index],
+              style: headingStyle.copyWith(
+                  fontSize: 14,
+                  color: currentIndex == index ? Colors.white : textColo2,
+                  fontWeight: FontWeight.w500),
+            )),
+          )),
     );
   }
 }
