@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:maazoon_app/core/constants/colors.dart';
 import 'package:maazoon_app/core/constants/constants.dart';
-import 'package:timeline_tile/timeline_tile.dart';
 
 class RecommendBody extends StatelessWidget {
   const RecommendBody({super.key});

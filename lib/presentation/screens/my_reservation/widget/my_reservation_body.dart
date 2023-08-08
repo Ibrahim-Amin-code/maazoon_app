@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:maazoon_app/core/constants/colors.dart';
 import 'package:maazoon_app/core/constants/constants.dart';
 import 'package:maazoon_app/core/router/router.dart';

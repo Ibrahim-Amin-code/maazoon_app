@@ -4,13 +4,11 @@ import 'package:api_request/api_request.dart';
 import 'package:easy_localization/easy_localization.dart';
 // import 'package:firebase_core/firebase_core.dart';
 // import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:maazoon_app/presentation/screens/auth/register/register.dart';
 // import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'core/constants/colors.dart';
 import 'core/constants/constants.dart';
 import 'core/network/appbinding.dart';
@@ -18,7 +16,6 @@ import 'core/router/router.dart';
 import 'core/utiles/bloc_observer.dart'; //01207070972
 import 'generator/codegen_loader.dart';
 import 'generator/localization_constant.dart';
-import 'presentation/screens/splash/splash.dart';
 
 // Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 //   print('Handling a background message ');

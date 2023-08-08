@@ -1,6 +1,3 @@
-import 'package:get_it/get_it.dart';
-import '../../presentation/screens/auth/cubit/auth_cubit.dart';
-import '../../presentation/screens/home/cubit/stadium_cubit.dart';
 
 Future<void> init() async {
   // GetIt.instance

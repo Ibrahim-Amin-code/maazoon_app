@@ -2,9 +2,7 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:maazoon_app/core/router/router.dart';
 import 'package:maazoon_app/core/widgets/custom_buttons_widget.dart';
-import 'package:maazoon_app/presentation/screens/layout/layout.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../widgets/space_widget.dart';

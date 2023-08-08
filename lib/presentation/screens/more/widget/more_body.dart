@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/constants/constants.dart';
 import 'package:maazoon_app/core/router/router.dart';
 import 'package:maazoon_app/core/widgets/space_widget.dart';
-import 'package:maazoon_app/presentation/screens/auth/login/login.dart';
 import 'package:maazoon_app/presentation/screens/more/more_screens/contact_us/contact_us_screen.dart';
 import 'package:maazoon_app/presentation/screens/more/more_screens/profile/profile.dart';
 import 'package:maazoon_app/presentation/screens/more/more_screens/wallet/wallet_screen.dart';

@@ -1,10 +1,7 @@
 // ignore_for_file: deprecated_member_use, avoid_print, avoid_single_cascade_in_expression_statements, depend_on_referenced_packages
 import 'dart:io';
 
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../../../../../../core/constants/colors.dart';
 import '../../../../../../../core/constants/constants.dart';
@@ -98,7 +95,7 @@ class _EditProfileBodyState extends State<EditProfileBody> {
                         : CircleAvatar(
                             radius: screenWidth(context) * 0.2,
                             backgroundColor: Colors.white,
-                            backgroundImage: NetworkImage(
+                            backgroundImage: const NetworkImage(
                                 "https://img.freepik.com/free-photo/portrait-handsome-young-man-with-crossed-arms_176420-15569.jpg?w=1380&t=st=1666527712~exp=1666528312~hmac=d04a46271a4c69241a3e590be8cb292f6c47fbb3f587402a837d963a3ad30344"),
                           ),
                   ),

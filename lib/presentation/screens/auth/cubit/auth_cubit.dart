@@ -2,10 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 // import 'package:meta/meta.dart';
 
-import '../../layout/layout.dart';
-import '../action/delete_account.dart';
-import '../action/login.dart';
-import '../action/update_profile.dart';
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {

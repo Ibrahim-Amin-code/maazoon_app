@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:maazoon_app/core/router/router.dart';
 import 'package:maazoon_app/presentation/screens/auth/login/login.dart';
-import 'package:maazoon_app/presentation/screens/auth/login/widget/body.dart';
 import 'package:maazoon_app/presentation/screens/auth/register/widget/register_widget.dart';
 import '../../../../../core/constants/colors.dart';
 import '../../../../../core/constants/constants.dart';

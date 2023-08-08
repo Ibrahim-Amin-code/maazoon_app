@@ -6,7 +6,6 @@ import 'package:maazoon_app/core/constants/constants.dart';
 import 'package:maazoon_app/core/widgets/space_widget.dart';
 import 'package:maazoon_app/presentation/screens/more/more_screens/wallet/widget/wallet_widget.dart';
 
-import '../../../../../../core/widgets/custom_buttons_widget.dart';
 
 class WalletBody extends StatelessWidget {
   const WalletBody({
