@@ -17,6 +17,6 @@ class _SearchScreenState extends State<SearchScreen> {
     return Scaffold(
         backgroundColor: MazzoonColor,
         appBar: customAppbar(title: "البحث", context: context),
-        body: const SearchBody());
+        body: const SearchBody(index: 0,));
   }
 }
