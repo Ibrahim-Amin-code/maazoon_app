@@ -71,6 +71,7 @@ class _SearchByNameState extends State<SearchByName> {
                           value: _value,
                           interval: 1,
                           showTicks: true,
+                          //
                           showLabels: true,
                           activeColor: MazzoonColor,
                           inactiveColor: MazzoonColor.withOpacity(0.5),
