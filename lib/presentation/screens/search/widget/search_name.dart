@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
-import 'package:maazoon_app/presentation/cubit/app_cubit.dart';
 import 'package:maazoon_app/presentation/screens/search/widget/search_widget.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 import '../../../../core/constants/colors.dart';

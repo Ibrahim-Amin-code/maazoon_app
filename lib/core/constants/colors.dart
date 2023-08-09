@@ -11,10 +11,9 @@ Color blueColor = HexColor.fromHex('#0137CE');
 Color borderColor = HexColor.fromHex('#DED09E');
 Color gradColor = HexColor.fromHex('#D3C07E');
 
-
 Color testColor = HexColor.fromHex('#245');
 
-Color kMainColor = HexColor.fromHex('#144575');
+Color kMainColor = HexColor.fromHex('#968447');
 Color goldColor = HexColor.fromHex('#FFD600');
 Color dayColor = HexColor.fromHex('#F1F1F1');
 Color divderColor = HexColor.fromHex('#D9D9D9'); //F1F1F1
@@ -40,10 +39,9 @@ Color colorText = HexColor.fromHex('#011C51');
 Color colorBorder = HexColor.fromHex('#464646');
 //Color(0xffAEBDB1).withOpacity(0.25)
 Color notificationColor = HexColor.fromHex('#AEBDB1').withOpacity(0.25);
-Color colorlightred = HexColor.fromHex('#FF5D5D');//C2C2C2
+Color colorlightred = HexColor.fromHex('#FF5D5D'); //C2C2C2
 Color verticalDivider1 = HexColor.fromHex('#858585');
 Color verticalDivider2 = HexColor.fromHex('#C2C2C2');
-
 
 Color eyeColor = HexColor.fromHex('#424242');
 

@@ -44,21 +44,20 @@ dependencies:
   api_request: ^1.0.0-pre-6
   get_it: ^7.2.0
   fluttertoast: ^8.0.9
-  # url_launcher: ^6.1.7
-  timeline_tile: ^2.0.0
   image_picker: ^0.8.6+1
   pin_code_text_field: ^1.8.0
   font_awesome_flutter: ^10.4.0
   flutter_rating_bar: ^4.0.1
-  conditional_builder_null_safety: ^0.0.6
   flutter_card_swipper: ^0.4.0
   persistent_bottom_nav_bar: ^5.0.2
   fast_color_picker: ^0.1.1
-  flutter_calendar_week: ^3.0.0
   syncfusion_flutter_sliders:
-  syncfusion_flutter_charts:
-  # pod_player: any
   location: ^4.3.0
+  analog_clock: ^0.1.1
+  page_transition: ^2.0.9
+  timeline_tile: any
+  calendar_date_picker2: ^0.5.2
+  google_maps_flutter: ^2.2.5
   # firebase_core: ^2.13.0
   # firebase_messaging: ^14.6.1
   # flutter_local_notifications: ^14.1.0

@@ -8,6 +8,7 @@ import 'package:maazoon_app/core/router/router.dart';
 import 'package:maazoon_app/core/widgets/custom_buttons_widget.dart';
 import 'package:maazoon_app/core/widgets/space_widget.dart';
 import 'package:maazoon_app/presentation/screens/mazzoon/mazzoon_booking/mazzoon_booking.dart';
+import 'package:page_transition/page_transition.dart';
 
 class MazzoonDetailsBody extends StatelessWidget {
   const MazzoonDetailsBody({
@@ -94,7 +95,13 @@ class MazzoonDetailsBody extends StatelessWidget {
             const VerticalSpace(value: 16),
             CustomGeneralButton(
               text: "حجز المأذون",
-              onTap: () => MagicRouter.navigateTo(const MazzoonBookingScreen()),
+              onTap: () => Navigator.push(
+                context,
+                PageTransition(
+                  child: const MazzoonBookingScreen(),
+                  type: PageTransitionType.leftToRight,
+                ),
+              ),
               color: buttonColor,
               borderRadius: 16,
               height: screenHeight(context) * 0.055,

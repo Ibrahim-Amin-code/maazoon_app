@@ -16,7 +16,7 @@ class _JoinUsScreenState extends State<JoinUsScreen> {
     return Scaffold(
       backgroundColor: MazzoonColor,
       appBar: customAppbar(title: "انضم الينا", context: context),
-      body: JoinUsBody(),
+      body: const JoinUsBody(),
     );
   }
 }

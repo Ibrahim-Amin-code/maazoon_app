@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/constants/colors.dart';
+import 'package:maazoon_app/core/widgets/custom_buttons_widget.dart';
+import 'package:maazoon_app/presentation/screens/home/widget/home_widgets.dart';
+import 'package:maazoon_app/presentation/screens/search/widget/map_search.dart';
 import 'package:maazoon_app/presentation/screens/search/widget/search_name.dart';
 import '../../../../core/constants/constants.dart';
 import '../../../../core/widgets/space_widget.dart';
 
 class SearchBody extends StatefulWidget {
-  const SearchBody({super.key, required this.index});
-  final int? index;
+  const SearchBody({
+    super.key,
+  });
 
   @override
   State<SearchBody> createState() => _SearchBodyState();
@@ -18,19 +22,6 @@ class _SearchBodyState extends State<SearchBody> {
   TextEditingController? searchController;
   List<String> titles = ['ليستة', 'الخريطة'];
   int currentIndex = 0;
-
-  @override
-  void initState() {
-    if (widget.index != null) {
-      setState(() {
-        currentIndex = widget.index!;
-      });
-    } else {
-      setState(() {
-        currentIndex = 0;
-      });
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,14 +38,64 @@ class _SearchBodyState extends State<SearchBody> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const VerticalSpace(value: 2),
-            Row(
-              children: List.generate(
-                  titles.length,
-                  (index) => buildOptions(
-                        index: index,
-                      )),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: screenWidth(context) * 0.01,
+              ),
+              child: Container(
+                width: double.infinity,
+                padding: EdgeInsets.symmetric(
+                    vertical: screenHeight(context) * 0.01,
+                    horizontal: screenWidth(context) * 0.01),
+                decoration: BoxDecoration(
+                  color: const Color(0xff34593B).withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Row(
+                  children: List.generate(
+                      titles.length,
+                      (index) => buildOptions(
+                            index: index,
+                          )),
+                ),
+              ),
             ),
-            (currentIndex == 0) ? const SearchByName() : Container()
+            (currentIndex == 0)
+                ? const SearchByName()
+                : Stack(
+                    children: [
+                      const MapSearchItem(),
+                      Padding(
+                        padding:
+                            EdgeInsets.only(top: screenHeight(context) * 0.57),
+                        child: Container(
+                            color: Colors.white,
+                            padding: EdgeInsets.symmetric(
+                              horizontal: screenWidth(context) * 0.05,
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const SheikhMazzoonCard(),
+                                const VerticalSpace(value: 2),
+                                Center(
+                                  child: SizedBox(
+                                    width: double.infinity,
+                                    height: screenHeight(context) * 0.07,
+                                    child: CustomGeneralButton(
+                                      text: "المزيد",
+                                      textColor: Colors.white,
+                                      color: buttonColor,
+                                      onTap: () {},
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            )),
+                      ),
+                    ],
+                  )
           ],
         ),
       ),
@@ -65,12 +106,13 @@ class _SearchBodyState extends State<SearchBody> {
     required int index,
   }) {
     return AnimatedContainer(
-      width: screenWidth(context) * 0.49,
-      // height: 50,
-      margin: EdgeInsets.symmetric(horizontal: screenWidth(context) * 0.004),
+      width: screenWidth(context) * 0.46,
+      height: screenHeight(context) * 0.06,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
-        color: Colors.transparent,
+        color: currentIndex == index
+            ? const Color(0xff34593B).withOpacity(0.9)
+            : Colors.transparent,
       ),
       duration: const Duration(milliseconds: 200),
       child: InkWell(
@@ -79,26 +121,14 @@ class _SearchBodyState extends State<SearchBody> {
               currentIndex = index;
             });
           },
-          child: Container(
-            width: 200,
-            height: screenHeight(context) * 0.06,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-
-              color: currentIndex == index
-                  ? const Color(0xff34593B).withOpacity(0.9)
-                  : const Color(0xff34593B).withOpacity(0.2),
-              // borderRadius: BorderRadius.circular(5),
-            ),
-            child: Center(
-                child: Text(
-              titles[index],
-              style: headingStyle.copyWith(
-                  fontSize: 14,
-                  color: currentIndex == index ? Colors.white : textColo2,
-                  fontWeight: FontWeight.w500),
-            )),
-          )),
+          child: Center(
+              child: Text(
+            titles[index],
+            style: headingStyle.copyWith(
+                fontSize: 14,
+                color: currentIndex == index ? Colors.white : textColo2,
+                fontWeight: FontWeight.w500),
+          ))),
     );
   }
 }

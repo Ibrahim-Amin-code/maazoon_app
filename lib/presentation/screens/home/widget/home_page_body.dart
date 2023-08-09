@@ -5,6 +5,7 @@ import 'package:maazoon_app/core/constants/constants.dart';
 import 'package:maazoon_app/core/router/router.dart';
 import 'package:maazoon_app/presentation/screens/mazzoon/mazzoon_details/mazzoon_details.dart';
 import 'package:maazoon_app/presentation/screens/search/search_screen.dart';
+import 'package:page_transition/page_transition.dart';
 import '../../../../core/widgets/space_widget.dart';
 import 'home_widgets.dart';
 
@@ -33,7 +34,13 @@ class _HomeBodyState extends State<HomeBody> {
             children: [
               const VerticalSpace(value: 11),
               BuildSearchWidget(
-                onTap: () => MagicRouter.navigateTo(const SearchScreen()),
+                onTap: () => Navigator.push(
+                  context,
+                  PageTransition(
+                    child: const SearchScreen(),
+                    type: PageTransitionType.leftToRight,
+                  ),
+                ),
               ),
               const VerticalSpace(value: 2.5),
               const BuildRecommendCard(),
@@ -47,8 +54,14 @@ class _HomeBodyState extends State<HomeBody> {
               ),
               const VerticalSpace(value: 2),
               SheikhMazzoonCard(
-                  onTap: () =>
-                      MagicRouter.navigateTo(const MazzoonDetailsScreen())),
+                onTap: () => Navigator.push(
+                  context,
+                  PageTransition(
+                    child: const MazzoonDetailsScreen(),
+                    type: PageTransitionType.leftToRight,
+                  ),
+                ),
+              ),
               const VerticalSpace(value: 2.8),
               const AddsWeddingPlace(),
               const VerticalSpace(value: 2),
@@ -61,7 +74,7 @@ class _HomeBodyState extends State<HomeBody> {
               ),
               const VerticalSpace(value: 1.5),
               SizedBox(
-                height: screenHeight(context) * 0.19,
+                height: screenHeight(context) * 0.23,
                 child: ListView.separated(
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) => const SuggestMazzoon(),

@@ -8,7 +8,7 @@ import 'package:maazoon_app/core/widgets/custom_buttons_widget.dart';
 import '../../../../../../core/widgets/space_widget.dart';
 
 class JoinUsBody extends StatelessWidget {
-  JoinUsBody({
+  const JoinUsBody({
     super.key,
   });
 

@@ -1,12 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:maazoon_app/core/constants/colors.dart';
 import 'package:maazoon_app/core/constants/constants.dart';
 import 'package:maazoon_app/core/router/router.dart';
 import 'package:maazoon_app/core/widgets/space_widget.dart';
 import 'package:maazoon_app/presentation/screens/my_reservation/widget/reservation_widget.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../../my_reservation_details/details_screen.dart';
 
@@ -25,7 +24,15 @@ class MyResrvationBody extends StatelessWidget {
               primary: false,
               itemBuilder: (context, index) => ReservationSheikhCard(
                     onTap: () {
-                      MagicRouter.navigateTo( ReservationDetailsScreen(index: index,));
+                      Navigator.push(
+                        context,
+                        PageTransition(
+                          child: ReservationDetailsScreen(
+                            index: index,
+                          ),
+                          type: PageTransitionType.leftToRight,
+                        ),
+                      );
                     },
                     statusTitle: (index == 0)
                         ? "تم قبول العرض"

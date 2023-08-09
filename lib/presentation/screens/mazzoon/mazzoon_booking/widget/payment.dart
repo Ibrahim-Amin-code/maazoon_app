@@ -65,7 +65,6 @@ class _PaymentMethodsState extends State<PaymentMethods> {
       ),
     );
 
-    ;
   }
 }
 

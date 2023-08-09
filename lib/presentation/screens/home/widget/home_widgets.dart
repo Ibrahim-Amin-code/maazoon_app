@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/constants/colors.dart';
 import 'package:maazoon_app/core/router/router.dart';
 import 'package:maazoon_app/presentation/screens/recommend_mazzoon/recommend_screen.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../../../../core/constants/constants.dart';
 
@@ -128,7 +129,13 @@ class BuildRecommendCard extends StatelessWidget {
             ],
           ),
           InkWell(
-            onTap: () => MagicRouter.navigateTo(const RecommendScreen()),
+            onTap: () => Navigator.push(
+              context,
+              PageTransition(
+                child: const RecommendScreen(),
+                type: PageTransitionType.leftToRight,
+              ),
+            ),
             child: Container(
               height: screenHeight(context) * 0.065,
               width: screenWidth(context) * 0.35,

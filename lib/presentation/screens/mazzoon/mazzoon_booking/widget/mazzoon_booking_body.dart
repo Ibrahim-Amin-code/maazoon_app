@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/constants/colors.dart';
 import 'package:maazoon_app/core/constants/constants.dart';
@@ -8,6 +7,7 @@ import 'package:maazoon_app/core/widgets/custom_text_field.dart';
 import 'package:maazoon_app/core/widgets/space_widget.dart';
 import 'package:maazoon_app/presentation/screens/mazzoon/booking_confirm/booking_details_screen.dart';
 import 'package:maazoon_app/presentation/screens/mazzoon/mazzoon_booking/widget/payment.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../../../my_reservation_details/actions_screens/edit_reservation/widget/edit_reservation_wigets.dart';
 
@@ -127,7 +127,12 @@ class _MazzoonBookingBodyState extends State<MazzoonBookingBody> {
                 textColor: Colors.white,
                 text: "تأكيد الحجز",
                 onTap: () {
-                  MagicRouter.navigateTo(const BookingConfirmScreen());
+                  Navigator.push(
+                      context,
+                      PageTransition(
+                        child: const BookingConfirmScreen(),
+                        type: PageTransitionType.leftToRight,
+                      ));
                 }),
             const VerticalSpace(value: 2.5),
           ],

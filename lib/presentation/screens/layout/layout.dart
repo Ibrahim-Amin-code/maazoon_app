@@ -1,8 +1,5 @@
 // ignore_for_file: deprecated_member_use
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:get_it/get_it.dart';
 
 import 'package:maazoon_app/core/constants/colors.dart';
 import 'package:maazoon_app/presentation/screens/more/more_screen.dart';

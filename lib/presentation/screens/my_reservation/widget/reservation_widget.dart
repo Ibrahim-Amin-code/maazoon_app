@@ -28,13 +28,14 @@ class ReservationSheikhCard extends StatelessWidget {
               color: const Color(0xffE0E0E0),
             )),
         width: screenWidth(context) * 0.9,
-        height: screenHeight(context) * 0.15,
+        // height: screenHeight(context) * 0.15,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
-              height: screenHeight(context) * 0.03,
+              padding:
+                  EdgeInsets.symmetric(vertical: screenHeight(context) * 0.001),
               decoration: BoxDecoration(
                   color: statusColor,
                   borderRadius: const BorderRadius.only(

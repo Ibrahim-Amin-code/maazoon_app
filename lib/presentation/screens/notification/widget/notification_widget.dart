@@ -21,7 +21,7 @@ class NotificationCard extends StatelessWidget {
       padding: EdgeInsets.symmetric(
           horizontal: screenWidth(context) * 0.04,
           vertical: screenHeight(context) * 0.01),
-      height: screenHeight(context) * 0.18,
+      // height: screenHeight(context) * 0.18,
       decoration: BoxDecoration(
           color: notificationCardCOlor,
           borderRadius: BorderRadius.circular(12),

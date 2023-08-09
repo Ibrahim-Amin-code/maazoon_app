@@ -77,16 +77,16 @@ class ReservationDeatailsSheikhCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: (statusTitle == "تم قبول العرض" || (isEditting == true))
-          ? screenHeight(context) * 0.21
-          : screenHeight(context) * 0.14,
+      // height: (statusTitle == "تم قبول العرض" || (isEditting == true))
+      //     ? screenHeight(context) * 0.21
+      //     : screenHeight(context) * 0.14,
       decoration: BoxDecoration(
           border: Border.all(color: const Color(0xffE0E0E0)),
           borderRadius: BorderRadius.circular(10)),
       child: Column(
         children: [
           Container(
-            height: screenHeight(context) * 0.03,
+            // height: screenHeight(context) * 0.03,
             decoration: BoxDecoration(
                 color: statusColor,
                 borderRadius: const BorderRadius.only(

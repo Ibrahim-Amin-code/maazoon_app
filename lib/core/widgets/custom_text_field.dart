@@ -21,7 +21,6 @@ class CustomTextFormField extends StatelessWidget {
     this.controller,
     this.borderSideColor,
     this.borderSideColor2,
-
     this.suffix,
     this.suffixPressed,
     this.prefix,
@@ -93,7 +92,7 @@ class CustomTextFormField extends StatelessWidget {
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20),
           borderSide: BorderSide(
-            color:  borderSideColor2 ?? goldColor,
+            color: borderSideColor2 ?? buttonColor,
           ),
         ),
         suffixIcon: suffix ?? null,

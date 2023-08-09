@@ -3,14 +3,13 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
-import 'package:maazoon_app/presentation/screens/layout/layout.dart';
+import 'package:maazoon_app/presentation/screens/auth/login/login.dart';
 import '../../../core/constants/constants.dart';
 import '../../../core/router/router.dart';
-import '../auth/signup_Or_login/login_or_signup.dart';
 
 class SplashScreen extends StatefulWidget {
-  static double startLatitude = 0.0;
-  static double startLongitude = 0.0;
+  static double? startLatitude;
+  static double? startLongitude;
 
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -53,41 +52,22 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     getLocation();
 
-    isFirstTime();
-    Timer(const Duration(seconds: 3),
+    Timer(const Duration(milliseconds: 500),
         () => MagicRouter.navigateAndPopAll(screen));
     super.initState();
   }
 
-  Widget screen = const LoginOrSignUpScreen();
-
-  void isFirstTime() {
-    if (prefs.getString('token') != null && prefs.getString('token') != null) {
-      screen = const LayoutScreen(
-        index: 0,
-      );
-    } else {
-      screen = screen;
-    }
-  }
+  Widget screen = const LoginScreen();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-            child: Image.asset(
-              'asset/icons/cr7.png',
-              width: screenWidth(context) * 1.5,
-              height: screenHeight(context) * 0.55,
-              fit: BoxFit.contain,
-            ),
-          ),
-        ],
+      body: Image.asset(
+        'asset/images/Home.png',
+        width: screenWidth(context),
+        height: screenHeight(context),
+        fit: BoxFit.cover,
       ),
     );
   }

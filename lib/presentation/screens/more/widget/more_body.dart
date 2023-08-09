@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/constants/constants.dart';
 import 'package:maazoon_app/core/router/router.dart';
 import 'package:maazoon_app/core/widgets/space_widget.dart';
-import 'package:maazoon_app/presentation/screens/auth/login/login.dart';
 import 'package:maazoon_app/presentation/screens/more/more_screens/contact_us/contact_us_screen.dart';
 import 'package:maazoon_app/presentation/screens/more/more_screens/profile/profile.dart';
 import 'package:maazoon_app/presentation/screens/more/more_screens/wallet/wallet_screen.dart';
 import 'package:maazoon_app/presentation/screens/more/widget/more_widgets.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../../../../core/constants/colors.dart';
 import '../more_screens/join_us/join_us_screen.dart';
@@ -55,7 +55,12 @@ class _MoreBodyState extends State<MoreBody> {
               image: 'asset/images/Wallet.png',
               title: "محفظتي",
               onTap: () {
-                MagicRouter.navigateTo(const WalletScreen());
+                Navigator.push(
+                    context,
+                    PageTransition(
+                      child: const WalletScreen(),
+                      type: PageTransitionType.leftToRight,
+                    ));
               }),
           buildMainTitleWidget(title: "من نحن"),
           MoreCard(
@@ -89,7 +94,12 @@ class _MoreBodyState extends State<MoreBody> {
               image: 'asset/images/Chat  Square Check.png',
               title: 'تواصل معانا',
               onTap: () {
-                MagicRouter.navigateTo(const ContactUsScreen());
+                Navigator.push(
+                    context,
+                    PageTransition(
+                      child: const ContactUsScreen(),
+                      type: PageTransitionType.leftToRight,
+                    ));
               }),
           dividerWidget(),
 
@@ -154,7 +164,7 @@ class _MoreBodyState extends State<MoreBody> {
 
   Widget buildMainTitleWidget({required String title}) => Container(
         padding: EdgeInsets.symmetric(horizontal: screenWidth(context) * 0.02),
-        height: screenHeight(context) * 0.03,
+        // height: screenHeight(context) * 0.03,
         width: double.infinity,
         decoration: const BoxDecoration(
             color: Color(0xff322C18),
