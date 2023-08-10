@@ -9,7 +9,8 @@ import '../../../../../core/widgets/custom_text_field.dart';
 import '../../../../../core/widgets/space_widget.dart';
 
 class ResetPasswordBody extends StatefulWidget {
-  const ResetPasswordBody({super.key});
+  const ResetPasswordBody({super.key, required this.isFromProfile});
+  final bool isFromProfile;
 
   @override
   State<ResetPasswordBody> createState() => _ResetPasswordBodyState();
@@ -19,6 +20,8 @@ class _ResetPasswordBodyState extends State<ResetPasswordBody> {
   final formKey = GlobalKey<FormState>();
   TextEditingController newPassword = TextEditingController();
   TextEditingController confirmPassword = TextEditingController();
+  TextEditingController currentPassword = TextEditingController();
+
   FocusNode newPasswordFocus = FocusNode();
   FocusNode confirmPasswordFocus = FocusNode();
   bool isVisible = true;
@@ -49,10 +52,22 @@ class _ResetPasswordBodyState extends State<ResetPasswordBody> {
                     fontSize: screenWidth(context) * 0.045),
               ),
               const VerticalSpace(value: 1.5),
+              (widget.isFromProfile)
+                  ? CustomTextFormField(
+                      isPassword: true,
+                      controller: currentPassword,
+                      validator: (value) => validatePassword(value!),
+                      label: ' كلمة المرورالحالية',
+                      hint: ' كلمة المرورالحالية',
+                      inputType: TextInputType.visiblePassword,
+                    )
+                  : const SizedBox(),
+              const VerticalSpace(value: 1.5),
               CustomTextFormField(
                   controller: newPassword,
                   validator: (value) => validatePassword(value!),
                   focusNode: newPasswordFocus,
+                  isPassword: true,
                   label: ' كلمة المرور',
                   hint: "ادخل كلمة مرور جديدة",
                   inputType: TextInputType.visiblePassword,
@@ -65,6 +80,7 @@ class _ResetPasswordBodyState extends State<ResetPasswordBody> {
                   controller: confirmPassword,
                   validator: (value) => validatePassword(value!),
                   focusNode: confirmPasswordFocus,
+                  isPassword: true,
                   label: ' كلمة المرور',
                   hint: "اعد ادخال كلمة المرور",
                   inputType: TextInputType.visiblePassword,
@@ -99,11 +115,11 @@ class _ResetPasswordBodyState extends State<ResetPasswordBody> {
                     // }
                     // dialogMsg(context);
                     dialogMsg(
-                      isCongrate: true,
-                      subTitle: "تم تعديل كلمة المرور بنجاح",
+                        isCongrate: true,
+                        subTitle: "تم تعديل كلمة المرور بنجاح",
                         context: context,
-                        onTap: () =>
-                            MagicRouter.navigateAndPopAll(const LayoutScreen()));
+                        onTap: () => MagicRouter.navigateAndPopAll(
+                            const LayoutScreen()));
 
                     // MagicRouter.navigateTo(const LayoutScreen());
                   }

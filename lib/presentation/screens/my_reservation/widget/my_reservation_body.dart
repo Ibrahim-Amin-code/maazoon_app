@@ -2,15 +2,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/constants/colors.dart';
 import 'package:maazoon_app/core/constants/constants.dart';
-import 'package:maazoon_app/core/router/router.dart';
 import 'package:maazoon_app/core/widgets/space_widget.dart';
 import 'package:maazoon_app/presentation/screens/my_reservation/widget/reservation_widget.dart';
 import 'package:page_transition/page_transition.dart';
 
 import '../../my_reservation_details/details_screen.dart';
 
-class MyResrvationBody extends StatelessWidget {
-  const MyResrvationBody({super.key});
+class MyResrvationBody extends StatefulWidget {
+  const MyResrvationBody({super.key, });
+
+  @override
+  State<MyResrvationBody> createState() => _MyResrvationBodyState();
+}
+
+class _MyResrvationBodyState extends State<MyResrvationBody> {
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +33,7 @@ class MyResrvationBody extends StatelessWidget {
                         context,
                         PageTransition(
                           child: ReservationDetailsScreen(
-                            index: index,
+                            index:index,
                           ),
                           type: PageTransitionType.leftToRight,
                         ),

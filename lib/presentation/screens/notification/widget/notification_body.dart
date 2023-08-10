@@ -3,7 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/constants/colors.dart';
 import 'package:maazoon_app/core/constants/constants.dart';
+import 'package:maazoon_app/core/router/router.dart';
 import 'package:maazoon_app/core/widgets/space_widget.dart';
+import 'package:maazoon_app/presentation/screens/more/more_screens/wallet/wallet_screen.dart';
+import 'package:maazoon_app/presentation/screens/my_reservation/my_reservation_screen.dart';
+import 'package:maazoon_app/presentation/screens/my_reservation_details/details_screen.dart';
 import 'package:maazoon_app/presentation/screens/notification/widget/notification_widget.dart';
 
 class NotificationBody extends StatelessWidget {
@@ -40,6 +44,10 @@ class NotificationBody extends StatelessWidget {
                 shrinkWrap: true,
                 primary: false,
                 itemBuilder: (context, index) => NotificationCard(
+                    onTap: () => (index == 1 || index == 0)
+                        ? MagicRouter.navigateTo(
+                            const ReservationDetailsScreen(index: 0))
+                        : MagicRouter.navigateTo(const WalletScreen()),
                     dividerColorCard: (index == 1 || index == 0)
                         ? verticalDivider1
                         : verticalDivider2,

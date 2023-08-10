@@ -8,13 +8,13 @@ class NotificationCard extends StatelessWidget {
       required this.title,
       required this.dividerColorCard,
       required this.subTitle,
-      required this.notificationCardCOlor});
+      required this.notificationCardCOlor,required this.onTap});
 
   final String title;
   final String subTitle;
   final Color notificationCardCOlor; //
   final Color dividerColorCard; //
-
+ final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -77,12 +77,15 @@ class NotificationCard extends StatelessWidget {
                     fontWeight: FontWeight.w400,
                     color: textColor),
               ),
-              Text(
-                "التفاصيل",
-                style: headingStyle.copyWith(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    color: blueColor),
+              InkWell(
+                onTap: onTap,
+                child: Text(
+                  "التفاصيل",
+                  style: headingStyle.copyWith(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      color: blueColor),
+                ),
               )
             ],
           )

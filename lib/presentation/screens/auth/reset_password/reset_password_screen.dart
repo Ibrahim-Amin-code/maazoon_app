@@ -5,7 +5,9 @@ import '../../../../core/constants/colors.dart';
 import '../../../../core/constants/constants.dart';
 
 class ResetPasswordScreen extends StatefulWidget {
-  const ResetPasswordScreen({super.key});
+  const ResetPasswordScreen({super.key, required this.isFromProfile});
+  final bool isFromProfile;
+
 
   @override
   State<ResetPasswordScreen> createState() => _ResetPasswordScreenState();
@@ -20,7 +22,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
         title: 'نسيت كلمة المرور',
         context: context,
       ),
-      body:  const ResetPasswordBody()
+      body:   ResetPasswordBody(isFromProfile: widget.isFromProfile,)
     );
   }
 }

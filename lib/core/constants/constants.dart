@@ -215,14 +215,17 @@ void dialogMsg({
                   )
                 : const SizedBox(),
             const VerticalSpace(value: 1),
-            Text(
-              subTitle,
-              // "تم تعديل كلمة المرور بنجاح",
-              textAlign: TextAlign.center,
-              style: headingStyle.copyWith(
-                  color: const Color(0xff4D4D4D),
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400),
+            Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Text(
+                subTitle,
+                // "تم تعديل كلمة المرور بنجاح",
+                textAlign: TextAlign.center,
+                style: headingStyle.copyWith(
+                    color: const Color(0xff4D4D4D),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400),
+              ),
             ),
             const VerticalSpace(value: 3),
             CustomGeneralButton(

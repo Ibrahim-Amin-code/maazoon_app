@@ -81,7 +81,7 @@ class _ForgetPasswordBodyState extends State<ForgetPasswordBody> {
                         titleAppBar: "نسيت كلمة المرور",
                         buttonText: "تحقق",
                         onTap: () => MagicRouter.navigateTo(
-                            const ResetPasswordScreen())));
+                             const ResetPasswordScreen(isFromProfile: false,))));
                   }
                 },
                 color: buttonColor,

@@ -64,7 +64,8 @@ class _SearchBodyState extends State<SearchBody> {
                 ? const SearchByName()
                 : Stack(
                     children: [
-                      const MapSearchItem(),
+                      const 
+                      MapSearchItem(),
                       Padding(
                         padding:
                             EdgeInsets.only(top: screenHeight(context) * 0.57),

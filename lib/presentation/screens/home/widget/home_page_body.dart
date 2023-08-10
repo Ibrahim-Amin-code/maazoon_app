@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/constants/constants.dart';
-import 'package:maazoon_app/core/router/router.dart';
 import 'package:maazoon_app/presentation/screens/mazzoon/mazzoon_details/mazzoon_details.dart';
 import 'package:maazoon_app/presentation/screens/search/search_screen.dart';
 import 'package:page_transition/page_transition.dart';

@@ -67,6 +67,7 @@ class _LoginBodyState extends State<LoginBody> {
                 validator: (value) => validatePassword(value!),
                 focusNode: passwordFocuse,
                 label: '  كلمة المرور',
+                isPassword: true,
                 inputType: TextInputType.visiblePassword,
                 onEditingComplete: () {
                   passwordFocuse.unfocus();

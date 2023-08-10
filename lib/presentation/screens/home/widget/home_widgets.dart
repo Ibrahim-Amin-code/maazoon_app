@@ -49,7 +49,7 @@ class BuildSearchWidget extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        height: screenHeight(context) * 0.06,
+        height: screenHeight(context) * 0.07,
         decoration: BoxDecoration(
           border: Border.all(color: borderColor),
           borderRadius: BorderRadius.circular(15),

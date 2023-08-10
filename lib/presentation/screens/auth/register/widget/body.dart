@@ -124,6 +124,7 @@ class _RegisterBodyState extends State<RegisterBody> {
               const VerticalSpace(value: 1.5),
               CustomTextFormField(
                   controller: password,
+                  isPassword: true,
                   validator: (value) => validatePassword(value!),
                   focusNode: passwordFocuse,
                   label: '  كلمة المرور',
@@ -134,7 +135,9 @@ class _RegisterBodyState extends State<RegisterBody> {
                   }),
               const VerticalSpace(value: 1.5),
               CustomTextFormField(
+                  isPassword: true,
                   controller: confirmPassword,
+                  
                   validator: (value) => validatePassword(value!),
                   focusNode: confirmPasswordFocuse,
                   label: ' تأكيد كلمة المرور',

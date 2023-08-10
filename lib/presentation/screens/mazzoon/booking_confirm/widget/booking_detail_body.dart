@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/constants/colors.dart';
 import 'package:maazoon_app/core/constants/constants.dart';
+import 'package:maazoon_app/core/router/router.dart';
 import 'package:maazoon_app/core/widgets/custom_buttons_widget.dart';
 import 'package:maazoon_app/presentation/screens/home/widget/home_widgets.dart';
+import 'package:maazoon_app/presentation/screens/layout/layout.dart';
 
 import '../../../../../core/widgets/space_widget.dart';
 import '../../../my_reservation_details/widget/details_widgets.dart';
@@ -88,7 +90,16 @@ class _BookingConfirmBodyState extends State<BookingConfirmBody> {
             const VerticalSpace(value: 1),
             CustomGeneralButton(
               text: "الدفع",
-              onTap: () {},
+              onTap: () {
+                dialogMsg(
+                    isCongrate: true,
+                    context: context,
+                    onTap: () =>
+                        MagicRouter.navigateAndPopAll(const LayoutScreen(
+                          index: 0,
+                        )),
+                    subTitle: "تم تأكيد الحجز وفى انتظار التأكيد من المأزون");
+              },
               borderRadius: 15,
               color: buttonColor,
               textColor: Colors.white,
