@@ -42,7 +42,7 @@ Future startShared() async {
 
 //////////////////////////////////////////////////////////
 String translateString(String english, String arabic) {
-  return prefs.getString("lang") == 'ar' ? arabic : english;
+  return prefs.getString("lang") == 'en' ? english : arabic;
 }
 
 ////////////////////////////////////////////////////////////

@@ -22,6 +22,7 @@
     "signup_button":"انشاء حساب جديد",
     "login_button":"تسجيل الدخول",
     "full_name":"اسم المستخدم",
+    "mazzoon_name":"اسم المأذون",
     "email":"البريد الالكتروني",
     "iD_number":"رقم الهوية",
     "confirm_passowrd":"تأكيد كلمة المرور",
@@ -33,7 +34,7 @@
     "name":"الاسم",
     "contact_us":"تواصل معنا",
     "about_us":"من نحن",
-    "terms_conditions":"الأحكام والشروط",
+    "terms_conditions":"الشروط والأحكام",
     "privacy_policy":"سياسة الخصوصية",
     "send":"ارسال",
     "next":"التالي",
@@ -41,7 +42,66 @@
     "send_code":"ارسل الرمز",
     "check":"تحقق",
     "save":"حفظ",
-    "ok":"حسنا"
+    "ok":"حسنا",
+    "":"",
+
+    "search":"ابحث",
+    "recommen_mazzoon":"رشح لي مأذون",
+    "high_rate":"اعلى تقييما",
+    "more":"المزيد",
+    "my_reservation":"حجوزاتي",
+    "suggested_mazzoon":"مأذون مقترح",
+    "edit_password_done":"تم تعديل كلمة المرور بنجاح",
+    "my_wallet":"محفظتي",
+    "about_mazzoon":"عن مأذون",
+    "common_questions":"الاسئلة الشائعة",
+    "location_map":"خريطة الموقع",
+    "settings":"الاعدادات",
+    "share_app":"شارك التطبيق",
+    "join_to_mazzoon":"انظم الى قائمة المأذونين",
+    "lang":"اللغة",
+    "notification":"الإشعارات",
+    "logout":"تسجيل الخروج",
+    "more_title":"هذا التطبيق موثق من وزارة التجارة السعودية",
+    "map":"الخريطة",
+    "filter":"التصفية",
+    "place":"المكان",
+    "day":"اليوم",
+    "watch":"الساعة",
+    "mazzoon":"المأذون",
+    "choose_place_quran":"اختر مكان عقد القران",
+    "conutry":"البلد",
+    "city":"المدينة",
+    "street":"الحى",
+    "address":"العنوان",
+    "back":"الرجوع",
+    "confirm_place":"تأكيد مكان",
+    "legitimate_mazzoon":"مأذون شرعي",
+    "reservation_mazzoon":"حجز المأذون",
+    "marriage_number":"رقم طلب الزواج",
+    "choose_place":"اختر المكان",
+    "wedding_day":"The Day of the Wedding",
+    "choose_time":"اختر الوقت",
+    "pay_to_mazzoon":"ادفع للمأذون(اختيارى)",
+    "num_ministry_of_Justice":"ادخل الرقم المزود من وزارة العدل",
+    "search_place":"البحث عن مكان",
+    "choose_day":"اختر يوم",
+    "enter_amount":"ادخل مبلغ من 500 ر.س الى 2500 ر.س",
+    "payment_method":"طريقة الدفع",
+    "visa":"فيزا",
+    "master":"ماستر كارد",
+    "apple_pay":"أبل باي",
+    "stc":"اس تي سي باي",
+    "wallet":"المحفظة",
+    "list":"ليستة"
+
+
+
+
+
+   
+
+
 
     
 }
