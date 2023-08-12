@@ -1,7 +1,9 @@
 // ignore_for_file: deprecated_member_use
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import 'package:maazoon_app/core/constants/colors.dart';
+import 'package:maazoon_app/generator/locale_keys.dart';
 import 'package:maazoon_app/presentation/screens/more/more_screen.dart';
 import '../home/home.dart';
 import '../my_reservation/my_reservation_screen.dart';
@@ -55,7 +57,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
                 : Image.asset(
                     'asset/images/Home Angle 2.png',
                   ),
-            label: 'الرئيسية',
+            label: LocaleKeys.home.tr(),
           ),
           BottomNavigationBarItem(
             icon: _selectedIndex == 1
@@ -65,13 +67,13 @@ class _LayoutScreenState extends State<LayoutScreen> {
                 : Image.asset(
                     'asset/images/Calendar.png',
                   ),
-            label: 'حجوزاتي',
+            label: LocaleKeys.my_reservation.tr(),
           ),
           BottomNavigationBarItem(
             icon: _selectedIndex == 2
                 ? Image.asset('asset/images/Widget 22.png')
                 : Image.asset('asset/images/Widget 2.png'),
-            label: 'المزيد',
+            label: LocaleKeys.more.tr(),
           ),
         ],
         selectedItemColor: MazzoonColor,

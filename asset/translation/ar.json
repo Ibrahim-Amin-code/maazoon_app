@@ -1,5 +1,5 @@
 {
-    "have_no_account":"ليس لديك حساب",
+    "have_no_account":"ليس لديك حساب؟",
     "welcom_mazzoon1":"مرحبا بك في تطبيق مأذون",
     "welcom_mazzoon2":"الشريك الموثوق لحفل زفافك",
     "welcom_mazzoon3":"من فضلك ادخل البيانات التالية لانشاء حسابك",
@@ -13,6 +13,8 @@
     "welcom_mazzoon12":"قم بادخال كلمة المرور الجديدة",
     "welcom_mazzoon13":"تم تعديل كلمة المرور بنجاح",
     "welcom_mazzoon14":"تم انشاء حسابك بنجاح",
+    "welcom_mazzoon15":"كلمة المرور الحالية",
+
     "have_account":"لديك حساب؟",
     "login_now":"سجل الدخول الان",
     "phone":"رقم الجوال",
@@ -26,6 +28,10 @@
     "email":"البريد الالكتروني",
     "iD_number":"رقم الهوية",
     "confirm_passowrd":"تأكيد كلمة المرور",
+    "confirm":"تأكيد",
+    "otp1":"رمز OTP",
+
+
     "reset_passowrd":"إعادة تعيين كلمة المرور",
     "forget_message":"ستتلقى بريدًا إلكترونيًا لإعادة تعيين كلمة المرور الخاصة بك",
     "my_profile":"حسابي",
@@ -62,7 +68,9 @@
     "lang":"اللغة",
     "notification":"الإشعارات",
     "logout":"تسجيل الخروج",
-    "more_title":"هذا التطبيق موثق من وزارة التجارة السعودية",
+    "more_title":"هذا التطبيق موثق من وزارة ",
+    "more_title1":"التجارة السعودية",
+
     "map":"الخريطة",
     "filter":"التصفية",
     "place":"المكان",
@@ -80,7 +88,7 @@
     "reservation_mazzoon":"حجز المأذون",
     "marriage_number":"رقم طلب الزواج",
     "choose_place":"اختر المكان",
-    "wedding_day":"The Day of the Wedding",
+    "wedding_day":"مكان الزواج",
     "choose_time":"اختر الوقت",
     "pay_to_mazzoon":"ادفع للمأذون(اختيارى)",
     "num_ministry_of_Justice":"ادخل الرقم المزود من وزارة العدل",
@@ -93,7 +101,80 @@
     "apple_pay":"أبل باي",
     "stc":"اس تي سي باي",
     "wallet":"المحفظة",
-    "list":"ليستة"
+    "list":"ليستة",
+
+    "50 Sar":"50 ريال سعودي",
+    "via":"هذا المبلغ رسوم الحجز عن طريق  التطبيق",
+    "filter_by-place":"تصفية حسب المكان",
+    "filter_by-rate":"تصفية حسب التقييم",
+    "filter_by-day":"حسب اليوم المتاح",
+    "filter_by-time":"حسب الساعة المتاحة",
+    "filter_result":"تصفية النتائج",
+    "Choose_the_right_ma'zoun":"اختر المأذون المناسب لك",
+    "am":"مساءا",
+    "pm":"صباحا",
+    "reservation_confirm":"تأكيد الحجز",
+    "reservation_details":"تفاصيل الحجز",
+    "choose_ma'zoun":"اختيار الماذون",
+    "offer_accepted":"تم قبول العرض",
+    "request_accepted":"تم قبول الطلب",
+    "details":"التفاصيل",
+
+    "wait_accepted":"في انتظار موافقة المأذون",
+    "apologized_not_attending":"المأذون اعتذر عن الحضور",
+    "the_request_done":"تم تنفيذ الطلب",
+    "report_ma'zoun":"الابلاغ عن المأذون",
+    "rate_ma'zoun":"تقييم المأذون",
+    "cancel_request":"الغاء الطلب",
+    "switch_ma'zoun":"استبدال المأذون",
+    "switch_ma'zoun1":"تبديل المأذون",
+
+    "edit_request":"التعديل على الطلب",
+    "edit_request1":"تعديل الطلب",
+    "rate_experience":"قييم تجربتك",
+    "how_experience":"كيف كانت تجربتك",
+    "srend_rate":"ارسال التقيم",
+
+    "call_us":"تواصل هاتفيا",
+    "resaon_report":"سبب الإبلاغ ",
+    "send_report":"ارسال البلاغ",
+    "report_details":"تفاصيل البلاغ",
+    "request_details":"تفاصيل الطلب",
+
+    "choose_reason":"اختر السبب",
+    "sure_reaport":"هل انت متأكد من الإبلاغ عن الشيخ مشعل بن عبدالعزيز؟",
+    "scan_not_back":"لا يمكن الرجوع بعد هذه الخطوة",
+
+    
+    "recommend_ma'zoun":"الشيخ مشعل رشح لك بديل",
+    "sure_cancel":"هل انت متأكد من إلغاء الطلب؟",
+    "sure_cancel1":"تأكيد الإلغاء",
+    "send_rate_done":"تم ارسال تقيمكم بنجاح",
+    "edites_done":"تم حفظ التعديلات بنجاح",
+    "send_report_done":"تم ارسال الشكوى بنجاح وسيتم مرجعتها واتخاذ ما يلزم",
+    "cancel_done":"تم الغاء طلبكم بنجاح وسيتم رد رسوم التطبيق الى المحفظة الخاصة بكم قريبا",
+    "current_money":"الرصيد الحالي",
+    "pull_money":"سحب الاموال",
+    "num_money":"طلب رقم 1341",
+    "210 Sar":"+210 ر.س",
+    "edit_phone":"تعديل رقم الهاتف",
+    "save_edites":"حفظ التعديلات",
+    "change_photo":"تغيير الصورة الشخصية",
+    "type_message":"اكتب الرسالة هنا",
+    "change_password":"تغيير كلمة المرور",
+    "join_now":"يمكنك الإنضمام الى قائمة المأذونين الآن!",
+    "edit_data":"تعديل المعلومات الشخصية",
+    "download_app":"حمل تطبيق المأذونين الآن لتبدأ استقبال الطلبات",
+    "download_app1":"تحميل التطبيق",
+    "join_now2":"انضم الينا"
+    
+
+
+
+
+
+
+
 
 
 

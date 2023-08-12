@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_typing_uninitialized_variables, avoid_print, depend_on_referenced_packages
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/widgets/custom_buttons_widget.dart';
+import 'package:maazoon_app/generator/locale_keys.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../widgets/space_widget.dart';
@@ -61,6 +63,7 @@ double screenHeight(context) {
 customAppbar({
   required String title,
   required context,
+  VoidCallback? ontap,
 }) {
   return AppBar(
     elevation: 0.0,
@@ -76,7 +79,7 @@ customAppbar({
           fontSize: MediaQuery.of(context).size.width * 0.055),
     ),
     leading: InkWell(
-      onTap: () => Navigator.pop(context),
+      onTap: ontap ?? () => Navigator.pop(context),
       child: Icon(
         Icons.arrow_back_ios,
         color: Colors.white,
@@ -205,7 +208,7 @@ void dialogMsg({
           children: [
             (isCongrate == true)
                 ? Text(
-                    "تهانينا",
+                    translateString('Congrautions', "تهانينا"),
                     textAlign: TextAlign.center,
                     style: headingStyle.copyWith(
                         color: const Color(0xff4D4D4D),
@@ -230,7 +233,7 @@ void dialogMsg({
             const VerticalSpace(value: 3),
             CustomGeneralButton(
               width: screenWidth(context) * 0.5,
-              text: 'حسنا',
+              text: LocaleKeys.ok.tr(),
               height: 45,
               textColor: Colors.white,
               // borderColor: MazzoonColor,

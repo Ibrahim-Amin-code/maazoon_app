@@ -1,22 +1,25 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/constants/colors.dart';
 import 'package:maazoon_app/core/constants/constants.dart';
 import 'package:maazoon_app/core/widgets/space_widget.dart';
+import 'package:maazoon_app/generator/locale_keys.dart';
 import 'package:maazoon_app/presentation/screens/my_reservation/widget/reservation_widget.dart';
 import 'package:page_transition/page_transition.dart';
 
 import '../../my_reservation_details/details_screen.dart';
 
 class MyResrvationBody extends StatefulWidget {
-  const MyResrvationBody({super.key, });
+  const MyResrvationBody({
+    super.key,
+  });
 
   @override
   State<MyResrvationBody> createState() => _MyResrvationBodyState();
 }
 
 class _MyResrvationBodyState extends State<MyResrvationBody> {
-
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -33,19 +36,19 @@ class _MyResrvationBodyState extends State<MyResrvationBody> {
                         context,
                         PageTransition(
                           child: ReservationDetailsScreen(
-                            index:index,
+                            index: index,
                           ),
                           type: PageTransitionType.leftToRight,
                         ),
                       );
                     },
                     statusTitle: (index == 0)
-                        ? "تم قبول العرض"
+                        ? LocaleKeys.offer_accepted.tr()
                         : (index == 1)
-                            ? "في انتظار موافقة المأذون"
+                            ? LocaleKeys.wait_accepted.tr()
                             : (index == 2)
-                                ? "المأذون اعتذر عن الحضور"
-                                : "تم تنفيذ الطلب",
+                                ? LocaleKeys.apologized_not_attending.tr() //
+                                : LocaleKeys.the_request_done.tr(), //
                     iconImage: (index == 0)
                         ? "asset/images/Check Circle.png"
                         : (index == 1)

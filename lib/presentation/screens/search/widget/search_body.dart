@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/constants/colors.dart';
 import 'package:maazoon_app/core/widgets/custom_buttons_widget.dart';
@@ -6,6 +7,7 @@ import 'package:maazoon_app/presentation/screens/search/widget/map_search.dart';
 import 'package:maazoon_app/presentation/screens/search/widget/search_name.dart';
 import '../../../../core/constants/constants.dart';
 import '../../../../core/widgets/space_widget.dart';
+import '../../../../generator/locale_keys.dart';
 
 class SearchBody extends StatefulWidget {
   const SearchBody({
@@ -20,7 +22,7 @@ class _SearchBodyState extends State<SearchBody> {
   bool search = false;
 
   TextEditingController? searchController;
-  List<String> titles = ['ليستة', 'الخريطة'];
+  List<String> titles = [LocaleKeys.list.tr(), LocaleKeys.map.tr()];
   int currentIndex = 0;
 
   @override
@@ -64,8 +66,7 @@ class _SearchBodyState extends State<SearchBody> {
                 ? const SearchByName()
                 : Stack(
                     children: [
-                      const 
-                      MapSearchItem(),
+                      const MapSearchItem(),
                       Padding(
                         padding:
                             EdgeInsets.only(top: screenHeight(context) * 0.57),
@@ -85,7 +86,7 @@ class _SearchBodyState extends State<SearchBody> {
                                     width: double.infinity,
                                     height: screenHeight(context) * 0.07,
                                     child: CustomGeneralButton(
-                                      text: "المزيد",
+                                      text: LocaleKeys.more.tr(),
                                       textColor: Colors.white,
                                       color: buttonColor,
                                       onTap: () {},

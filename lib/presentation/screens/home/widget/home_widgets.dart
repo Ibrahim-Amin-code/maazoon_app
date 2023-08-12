@@ -1,7 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/constants/colors.dart';
-import 'package:maazoon_app/core/router/router.dart';
+import 'package:maazoon_app/generator/locale_keys.dart';
 import 'package:maazoon_app/presentation/screens/recommend_mazzoon/recommend_screen.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -24,7 +25,7 @@ class BuildNotificationRow extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'مرحبا بك في تطبيق مأذون',
+            LocaleKeys.welcom_mazzoon1.tr(),
             style: headingStyle.copyWith(
                 color: Colors.white, fontWeight: FontWeight.w700, fontSize: 20),
           ),
@@ -57,7 +58,7 @@ class BuildSearchWidget extends StatelessWidget {
         child: Row(
           children: [
             Text(
-              '  اسم المأذون',
+              '  ${LocaleKeys.mazzoon_name.tr()}',
               style: headingStyle.copyWith(
                   color: textColor, fontSize: 16, fontWeight: FontWeight.w400),
             ),
@@ -69,7 +70,7 @@ class BuildSearchWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Center(
-                child: Text('ابحث',
+                child: Text(LocaleKeys.search.tr(),
                     style: headingStyle.copyWith(
                         color: Colors.white,
                         fontSize: 15,
@@ -144,10 +145,11 @@ class BuildRecommendCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Center(
-                child: Text('رشح لي مأذون',
+                child: Text(LocaleKeys.recommen_mazzoon.tr(),
+                    textAlign: TextAlign.center,
                     style: headingStyle.copyWith(
                         color: Colors.white,
-                        fontSize: 16,
+                        fontSize: 14,
                         fontWeight: FontWeight.w700)),
               ),
             ),

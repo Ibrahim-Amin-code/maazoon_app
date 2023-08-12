@@ -1,6 +1,10 @@
 // ignore_for_file: library_private_types_in_public_api
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:maazoon_app/core/router/router.dart';
+import 'package:maazoon_app/generator/localization_constant.dart';
+import 'package:maazoon_app/presentation/screens/splash/firstScreen.dart';
 import '../constants/colors.dart';
 import '../constants/constants.dart';
 
@@ -70,6 +74,22 @@ class _CustomDropDownState extends State<CustomDropDown> {
           setState(() {
             _chosenValue = value;
           });
+
+          if (value == "English") {
+            setLocale('en');
+            prefs.setString('lang', 'en');
+            prefs.setString('language', 'English');
+            context.locale = const Locale('en');
+            MagicRouter.navigateAndPopAll(const FirstScreen());
+          } else {
+            setLocale('ar');
+            prefs.setString('lang', 'ar');
+            prefs.setString('language', 'العربية');
+            context.locale = const Locale('ar');
+
+            MagicRouter.navigateAndPopAll(const FirstScreen());
+          }
+
           _chosenValue = value;
         },
         onSaved: widget.onSave,

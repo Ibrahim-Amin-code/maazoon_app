@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/constants/colors.dart';
 import 'package:maazoon_app/core/constants/constants.dart';
@@ -7,6 +8,8 @@ import 'package:maazoon_app/core/widgets/custom_buttons_widget.dart';
 import 'package:maazoon_app/core/widgets/custom_text_field.dart';
 import 'package:maazoon_app/core/widgets/space_widget.dart';
 import 'package:maazoon_app/presentation/screens/more/more_screens/contact_us/widget/contact_widget.dart';
+
+import '../../../../../../generator/locale_keys.dart';
 
 class ContactUsBody extends StatelessWidget {
   ContactUsBody({
@@ -32,7 +35,7 @@ class ContactUsBody extends StatelessWidget {
           children: [
             const VerticalSpace(value: 3),
             CustomTextFormField(
-              label: "البريد الالكتروني",
+              label: LocaleKeys.email.tr(),
               prefix: Image.asset('asset/images/Icon (1).png'),
               hintColor: colorGrey3.withOpacity(0.8),
               controller: email,
@@ -44,7 +47,7 @@ class ContactUsBody extends StatelessWidget {
                   margin:
                       EdgeInsets.only(bottom: screenHeight(context) * 0.085),
                   child: Image.asset('asset/images/Icon (2).png')),
-              label: " اكتب الرسالة هنا",
+              label: " ${LocaleKeys.type_message.tr()}",
               hintColor: colorGrey3.withOpacity(0.8),
               controller: message,
               borderSideColor: colorGrey3.withOpacity(0.8),
@@ -52,7 +55,7 @@ class ContactUsBody extends StatelessWidget {
             ),
             const VerticalSpace(value: 4),
             CustomGeneralButton(
-                text: "ارسال",
+                text: LocaleKeys.send.tr(),
                 height: screenHeight(context) * 0.065,
                 color: buttonColor,
                 borderRadius: 16,

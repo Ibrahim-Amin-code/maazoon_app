@@ -6,7 +6,6 @@ import 'package:maazoon_app/core/constants/constants.dart';
 import 'package:maazoon_app/core/widgets/space_widget.dart';
 import 'package:maazoon_app/presentation/screens/more/more_screens/wallet/widget/wallet_widget.dart';
 
-
 class WalletBody extends StatelessWidget {
   const WalletBody({
     super.key,
@@ -31,7 +30,7 @@ class WalletBody extends StatelessWidget {
             const WalletBalance(),
             const VerticalSpace(value: 1),
             Text(
-              'تاريخ المعاملات',
+              translateString("Transaction History", "تاريخ المعاملات"),
               style: headingStyle.copyWith(
                 color: blackcolor,
                 fontSize: 19,

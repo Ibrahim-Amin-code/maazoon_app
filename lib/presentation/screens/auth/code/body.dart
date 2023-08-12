@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:maazoon_app/generator/locale_keys.dart';
 import 'package:pin_code_text_field/pin_code_text_field.dart';
 import '../../../../../core/constants/constants.dart';
 import '../../../../../core/widgets/custom_buttons_widget.dart';
@@ -78,7 +80,7 @@ class _CodeBodyState extends State<CodeBody> {
             children: [
               const VerticalSpace(value: 2.8),
               Text(
-                "لقد أرسلنا لك رسالة نصية قصيرة مكونة من 6 أرقام",
+                LocaleKeys.welcom_mazzoon6.tr(),
                 style: headingStyle.copyWith(
                     color: const Color(0xff322C18),
                     fontWeight: FontWeight.w400,
@@ -149,8 +151,8 @@ class _CodeBodyState extends State<CodeBody> {
               const VerticalSpace(value: 4),
               textSpanRegister(
                   onTap: () {},
-                  text1: "لم يتم الاستلام",
-                  text2: "ارسل مرة اخري",
+                  text1: LocaleKeys.welcom_mazzoon8.tr(),
+                  text2: LocaleKeys.welcom_mazzoon7.tr(),
                   textOne: MazzoonColor,
                   textTwo: blueColor,
                   isUnder: true,

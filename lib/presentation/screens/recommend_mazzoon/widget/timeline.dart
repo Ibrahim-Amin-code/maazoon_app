@@ -1,7 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/constants/colors.dart';
 import 'package:maazoon_app/core/constants/constants.dart';
 import 'package:timeline_tile/timeline_tile.dart';
+
+import '../../../../generator/locale_keys.dart';
 
 class TimeLinItemData extends StatefulWidget {
   final int currentIndex;
@@ -24,8 +27,8 @@ class _TimeLinItemDataState extends State<TimeLinItemData> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             TimelineTile(
-              isLast: true,
-              isFirst: false,
+              isLast: (prefs.getString("lang") == "en") ? false : true,
+              isFirst: (prefs.getString("lang") == "en") ? true : false,
               alignment: TimelineAlign.center,
               axis: TimelineAxis.horizontal,
               lineXY: .1,
@@ -59,7 +62,7 @@ class _TimeLinItemDataState extends State<TimeLinItemData> {
                 color: Colors.white,
               ),
               endChild: Text(
-                "المكان",
+                LocaleKeys.place.tr(),
                 style: headingStyle.copyWith(
                   fontSize: screenWidth(context) * 0.04,
                   color: Colors.black87,
@@ -115,7 +118,7 @@ class _TimeLinItemDataState extends State<TimeLinItemData> {
                 color: Colors.white,
               ),
               endChild: Text(
-                "اليوم",
+                LocaleKeys.day.tr(),
                 style: headingStyle.copyWith(
                   fontSize: screenWidth(context) * 0.04,
                   color: Colors.black87,
@@ -170,7 +173,7 @@ class _TimeLinItemDataState extends State<TimeLinItemData> {
                 color: Colors.white,
               ),
               endChild: Text(
-                "الساعة",
+                LocaleKeys.watch.tr(),
                 style: headingStyle.copyWith(
                   fontSize: screenWidth(context) * 0.04,
                   color: Colors.black87,
@@ -179,8 +182,8 @@ class _TimeLinItemDataState extends State<TimeLinItemData> {
               hasIndicator: true,
             ),
             TimelineTile(
-              isLast: false,
-              isFirst: true,
+              isLast: (prefs.getString("lang") == "en") ? true : false,
+              isFirst: (prefs.getString("lang") == "en") ? false : true,
               alignment: TimelineAlign.center,
               axis: TimelineAxis.horizontal,
               lineXY: .1,
@@ -212,7 +215,7 @@ class _TimeLinItemDataState extends State<TimeLinItemData> {
                 color: Colors.white,
               ),
               endChild: Text(
-                "المأذون",
+                LocaleKeys.mazzoon.tr(),
                 style: headingStyle.copyWith(
                   fontSize: screenWidth(context) * 0.04,
                   color: Colors.black87,

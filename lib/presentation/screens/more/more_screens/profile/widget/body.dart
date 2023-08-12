@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/constants/colors.dart';
 import 'package:maazoon_app/core/widgets/custom_buttons_widget.dart';
@@ -6,6 +7,7 @@ import 'package:maazoon_app/presentation/screens/more/more_screens/profile/widge
 
 import '../../../../../../core/constants/constants.dart';
 import '../../../../../../core/widgets/space_widget.dart';
+import '../../../../../../generator/locale_keys.dart';
 
 class ProfileBody extends StatefulWidget {
   const ProfileBody({Key? key}) : super(key: key);
@@ -37,12 +39,12 @@ class _ProfileBodyState extends State<ProfileBody> {
             const VerticalSpace(value: 2.5),
             CustomTextFormField(
               controller: fullName,
-              label: " الاسم",
+              label: " ${LocaleKeys.name.tr()}",
               // fillColor: ,
             ),
             const VerticalSpace(value: 2.5),
             CustomGeneralButton(
-                text: "تعديل رقم الهاتف",
+                text: LocaleKeys.edit_phone.tr(),
                 height: screenHeight(context) * 0.065,
                 color: Colors.white,
                 borderColor: Colors.black,
@@ -53,7 +55,7 @@ class _ProfileBodyState extends State<ProfileBody> {
                 onTap: () {}),
             const VerticalSpace(value: 2.5),
             CustomGeneralButton(
-                text: "حفظ التعديلات",
+                text: LocaleKeys.save_edites.tr(),
                 height: screenHeight(context) * 0.065,
                 color: buttonColor,
                 borderRadius: 16,

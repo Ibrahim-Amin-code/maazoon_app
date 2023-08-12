@@ -21,7 +21,8 @@ class _SelectMaazonItemState extends State<SelectMaazonItem> {
       children: [
         const VerticalSpace(value: 2),
         Text(
-          "اختر المأذون المناسب لك",
+          translateString(
+              "Choose right Ma'zoun for you", "اختر المأذون المناسب لك"),
           style: headingStyle.copyWith(
             fontSize: screenWidth(context) * 0.05,
             fontWeight: FontWeight.bold,
@@ -33,7 +34,7 @@ class _SelectMaazonItemState extends State<SelectMaazonItem> {
           primary: false,
           itemBuilder: (context, index) => const SheikhMazzoonCard(),
           separatorBuilder: (context, index) => const VerticalSpace(value: 1.5),
-          itemCount: 5,
+          itemCount: 8,
         ),
       ],
     );

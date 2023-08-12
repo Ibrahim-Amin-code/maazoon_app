@@ -1,7 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/constants/colors.dart';
 import 'package:maazoon_app/core/constants/constants.dart';
-import 'package:maazoon_app/core/router/router.dart';
 import 'package:maazoon_app/core/widgets/custom_buttons_widget.dart';
 import 'package:maazoon_app/core/widgets/custom_text_field.dart';
 import 'package:maazoon_app/core/widgets/space_widget.dart';
@@ -9,6 +9,7 @@ import 'package:maazoon_app/presentation/screens/mazzoon/booking_confirm/booking
 import 'package:maazoon_app/presentation/screens/mazzoon/mazzoon_booking/widget/payment.dart';
 import 'package:page_transition/page_transition.dart';
 
+import '../../../../../generator/locale_keys.dart';
 import '../../../my_reservation_details/actions_screens/edit_reservation/widget/edit_reservation_wigets.dart';
 
 class MazzoonBookingBody extends StatefulWidget {
@@ -43,7 +44,7 @@ class _MazzoonBookingBodyState extends State<MazzoonBookingBody> {
           children: [
             const VerticalSpace(value: 2),
             Text(
-              "رقم طلب الزواج",
+              LocaleKeys.marriage_number.tr(),
               style: headingStyle.copyWith(
                   color: textColo2, fontWeight: FontWeight.w700, fontSize: 18),
             ),
@@ -51,12 +52,12 @@ class _MazzoonBookingBodyState extends State<MazzoonBookingBody> {
             CustomTextFormField(
               inputType: TextInputType.number,
               controller: marriageNumber,
-              label: "ادخل الرقم المزود من وزارة العدل",
+              label: LocaleKeys.num_ministry_of_Justice.tr(),
               borderSideColor2: verticalDivider1,
             ),
             const VerticalSpace(value: 1.5),
             Text(
-              "اختر المكان",
+              LocaleKeys.choose_place.tr(),
               style: headingStyle.copyWith(
                   color: textColo2, fontWeight: FontWeight.w700, fontSize: 18),
             ),
@@ -64,13 +65,13 @@ class _MazzoonBookingBodyState extends State<MazzoonBookingBody> {
             CustomTextFormField(
               inputType: TextInputType.name,
               controller: choosePlace,
-              label: "البحث عن مكان",
+              label: translateString("Searching for place", "البحث عن مكان"),
               borderSideColor2: verticalDivider1,
               suffix: Image.asset('asset/images/Icon (6).png'),
             ),
             const VerticalSpace(value: 1.5),
             Text(
-              "يوم عقد القران",
+              translateString("The wedding day", "يوم عقد القران"),
               style: headingStyle.copyWith(
                   color: textColo2, fontWeight: FontWeight.w700, fontSize: 18),
             ),
@@ -79,12 +80,12 @@ class _MazzoonBookingBodyState extends State<MazzoonBookingBody> {
               suffix: Image.asset('asset/images/Calendar.png'),
               inputType: TextInputType.datetime,
               controller: dayQuran,
-              label: "اختر يوم",
+              label: LocaleKeys.choose_day.tr(),
               borderSideColor2: verticalDivider1,
             ),
             const VerticalSpace(value: 1),
             Text(
-              "اختر الوقت",
+              LocaleKeys.choose_time.tr(),
               style: headingStyle.copyWith(
                   color: textColo2, fontWeight: FontWeight.w700, fontSize: 18),
             ),
@@ -92,7 +93,7 @@ class _MazzoonBookingBodyState extends State<MazzoonBookingBody> {
             const TimesChoose(),
             const VerticalSpace(value: 1.5),
             Text(
-              "ادفع للمأذون (اختيارى)",
+              LocaleKeys.pay_to_mazzoon.tr(),
               style: headingStyle.copyWith(
                   color: textColo2, fontWeight: FontWeight.w700, fontSize: 18),
             ),
@@ -100,19 +101,19 @@ class _MazzoonBookingBodyState extends State<MazzoonBookingBody> {
             CustomTextFormField(
               inputType: TextInputType.number,
               controller: payToMazzoon,
-              label: "ادخل مبلغ من 500 ر.س الى 2500 ر.س",
+              label: LocaleKeys.enter_amount.tr(),
               borderSideColor2: verticalDivider1,
             ),
             const VerticalSpace(value: 1),
             Text(
-              "طريقة الدفع",
+              LocaleKeys.payment_method.tr(),
               style: headingStyle.copyWith(
                   color: textColo2, fontWeight: FontWeight.w700, fontSize: 18),
             ),
             const VerticalSpace(value: 1),
             const PaymentMethods(),
             Text(
-              "المحفظة",
+              LocaleKeys.wallet.tr(),
               style: headingStyle.copyWith(
                   color: textColo2, fontWeight: FontWeight.w700, fontSize: 18),
             ),
@@ -125,7 +126,7 @@ class _MazzoonBookingBodyState extends State<MazzoonBookingBody> {
                 height: screenHeight(context) * 0.065,
                 fontSize: 16,
                 textColor: Colors.white,
-                text: "تأكيد الحجز",
+                text: LocaleKeys.reservation_confirm.tr(),
                 onTap: () {
                   Navigator.push(
                       context,

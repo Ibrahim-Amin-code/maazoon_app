@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/constants/constants.dart';
 import 'package:maazoon_app/core/router/router.dart';
 import 'package:maazoon_app/core/widgets/space_widget.dart';
+import 'package:maazoon_app/generator/locale_keys.dart';
 import 'package:maazoon_app/presentation/screens/auth/reset_password/reset_password_screen.dart';
 import 'package:maazoon_app/presentation/screens/more/more_screens/contact_us/contact_us_screen.dart';
 import 'package:maazoon_app/presentation/screens/more/more_screens/profile/profile.dart';
@@ -39,17 +41,17 @@ class _MoreBodyState extends State<MoreBody> {
           ),
           const VerticalSpace(value: 2.5),
           // dividerWidget(),
-          buildMainTitleWidget(title: 'الملف الشخصي'),
+          buildMainTitleWidget(title: LocaleKeys.profile.tr()),
           MoreCard(
               image: 'asset/images/Profile.png',
-              title: 'الملف الشخصي',
+              title: LocaleKeys.profile.tr(),
               onTap: () {
                 MagicRouter.navigateTo(const ProfileScreen());
               }),
           dividerWidget(),
           MoreCard(
               image: 'asset/images/Lock Password.png',
-              title: 'تعديل كلمة السر',
+              title: translateString("Change Password", "تعديل كلمة السر"),
               onTap: () {
                 MagicRouter.navigateTo(
                     const ResetPasswordScreen(isFromProfile: true));
@@ -57,7 +59,7 @@ class _MoreBodyState extends State<MoreBody> {
           dividerWidget(),
           MoreCard(
               image: 'asset/images/Wallet.png',
-              title: "محفظتي",
+              title: LocaleKeys.my_wallet.tr(),
               onTap: () {
                 Navigator.push(
                     context,
@@ -66,37 +68,39 @@ class _MoreBodyState extends State<MoreBody> {
                       type: PageTransitionType.leftToRight,
                     ));
               }),
-          buildMainTitleWidget(title: "من نحن"),
+          buildMainTitleWidget(title: LocaleKeys.about_us.tr()),
           MoreCard(
               image: 'asset/images/Document.png',
-              title: "عن مأذون",
+              title: LocaleKeys.about_mazzoon.tr(),
               onTap: () {}),
 
           dividerWidget(),
           MoreCard(
               image: "asset/images/List Check Minimalistic.png",
-              title: 'الشروط والاحكام',
+              title: LocaleKeys.terms_conditions.tr(),
               onTap: () {}),
 
           dividerWidget(),
           MoreCard(
               image: 'asset/images/Shield Check.png',
-              title: 'سياسة الخصوصة',
+              title: LocaleKeys.privacy_policy.tr(),
               onTap: () {}),
           dividerWidget(),
           MoreCard(
               image: 'asset/images/Question Circle.png',
-              title: 'الأسئلة الشائعة',
+              title: LocaleKeys.common_questions.tr(),
               onTap: () {}),
           dividerWidget(),
           MoreCard(
               image: 'asset/images/Folder Path Connect.png',
-              title: "خريطة الموقع",
+              title: LocaleKeys.location_map.tr(),
               onTap: () {}),
-          buildMainTitleWidget(title: "الاعدادات"),
+          buildMainTitleWidget(
+            title: LocaleKeys.settings.tr(),
+          ),
           MoreCard(
               image: 'asset/images/Chat  Square Check.png',
-              title: 'تواصل معانا',
+              title: LocaleKeys.contact_us.tr(),
               onTap: () {
                 Navigator.push(
                     context,
@@ -109,7 +113,7 @@ class _MoreBodyState extends State<MoreBody> {
 
           MoreCard(
               image: 'asset/images/Share.png',
-              title: "شارك التطبيق",
+              title: LocaleKeys.share_app.tr(),
               onTap: () {
                 // MagicRouter.navigateTo(const ContactUsScreen());
               }),
@@ -117,27 +121,30 @@ class _MoreBodyState extends State<MoreBody> {
 
           MoreCard(
               image: 'asset/images/Case Round.png',
-              title: "انضم الى قائمة المأذونين",
+              title: LocaleKeys.join_to_mazzoon.tr(),
               onTap: () {
                 MagicRouter.navigateTo(const JoinUsScreen());
               }),
           dividerWidget(),
 
           LangCard(
-              image: 'asset/images/Language.png', title: "اللغة", onTap: () {}),
+              image: 'asset/images/Language.png',
+              title: LocaleKeys.lang.tr(),
+              onTap: () {}),
+
           dividerWidget(),
 
-          const MoreCard(
+          MoreCard(
             isNotification: true,
             image: "asset/images/Bell Bing.png",
-            title: "الإشعارات",
+            title: LocaleKeys.notification.tr(),
           ),
           dividerWidget(),
 
           MoreCard(
             onTap: () {},
             image: "asset/images/Logout 2.png",
-            title: "تسجيل الخروج",
+            title: LocaleKeys.logout.tr(),
             titleColor: Colors.red,
             arrowColor: Colors.red,
           ),
@@ -154,14 +161,14 @@ class _MoreBodyState extends State<MoreBody> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'هذا التطبيق موثق من وزارة',
+            LocaleKeys.more_title.tr(),
             style: headingStyle.copyWith(
-                fontSize: 16, color: textColor, fontWeight: FontWeight.w600),
+                fontSize: 15, color: textColor, fontWeight: FontWeight.w600),
           ),
           Text(
-            ' التجارة السعودية',
+            LocaleKeys.more_title1.tr(),
             style: headingStyle.copyWith(
-                fontSize: 16, color: textColor, fontWeight: FontWeight.w700),
+                fontSize: 14, color: textColor, fontWeight: FontWeight.w700),
           ),
         ],
       );

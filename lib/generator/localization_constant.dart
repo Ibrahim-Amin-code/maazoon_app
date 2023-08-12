@@ -33,7 +33,6 @@ Locale _locale(String languageCode) {
 //   return temp = _locale(languageCode);
 // }
 
-
 Future<Locale> getLocale() async {
   Locale temp;
   if (prefs.getString('lang') != null) {
@@ -43,7 +42,7 @@ Future<Locale> getLocale() async {
     prefs.setString('lang', "ar");
     prefs.setString(
       "language",
-      "اللغة العربية",
+      "العربية",
     );
     String languageCode = "ar";
     return temp = _locale(languageCode);

@@ -8,7 +8,7 @@ part 'app_state.dart';
 class AppCubit extends Cubit<AppState> {
   AppCubit() : super(AppInitial());
 
-  SfRangeValues values = SfRangeValues(40.0, 80.0);
+  SfRangeValues values = const SfRangeValues(40.0, 80.0);
 
   void changeFilter(SfRangeValues values) {
     values = values;

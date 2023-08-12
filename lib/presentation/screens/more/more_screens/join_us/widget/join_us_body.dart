@@ -1,9 +1,11 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/constants/colors.dart';
 import 'package:maazoon_app/core/constants/constants.dart';
 import 'package:maazoon_app/core/widgets/custom_buttons_widget.dart';
+import 'package:maazoon_app/generator/locale_keys.dart';
 
 import '../../../../../../core/widgets/space_widget.dart';
 
@@ -33,12 +35,13 @@ class JoinUsBody extends StatelessWidget {
           ),
           const VerticalSpace(value: 10),
           Text(
-            'يمكنك الإنضمام الى قائمة المأذونين الآن!',
+            LocaleKeys.join_now.tr(),
             style: headingStyle.copyWith(
                 color: buttonColor, fontSize: 18, fontWeight: FontWeight.w700),
           ),
           Text(
-            "حمل تطبيق المأذونين الآن لتبدأ استقبال الطلبات",
+            LocaleKeys.download_app.tr(),
+            textAlign: TextAlign.center,
             style: headingStyle.copyWith(
                 color: MazzoonColor, fontSize: 16, fontWeight: FontWeight.w400),
           ),
@@ -49,7 +52,7 @@ class JoinUsBody extends StatelessWidget {
             padding:
                 EdgeInsets.symmetric(horizontal: screenHeight(context) * 0.015),
             child: CustomGeneralButton(
-              text: "تحميل التطبيق",
+              text: LocaleKeys.download_app1.tr(),
               onTap: () {},
               borderRadius: 15,
               color: buttonColor,

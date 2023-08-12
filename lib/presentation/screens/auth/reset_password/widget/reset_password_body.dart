@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:maazoon_app/generator/locale_keys.dart';
 import 'package:maazoon_app/presentation/screens/layout/layout.dart';
 import '../../../../../core/constants/colors.dart';
 import '../../../../../core/constants/constants.dart';
@@ -45,7 +47,7 @@ class _ResetPasswordBodyState extends State<ResetPasswordBody> {
             children: [
               const VerticalSpace(value: 2.8),
               Text(
-                'قم بادخال كلمة المرور الجديدة',
+                LocaleKeys.welcom_mazzoon12.tr(),
                 style: headingStyle.copyWith(
                     color: MazzoonColor,
                     fontWeight: FontWeight.w400,
@@ -57,8 +59,8 @@ class _ResetPasswordBodyState extends State<ResetPasswordBody> {
                       isPassword: true,
                       controller: currentPassword,
                       validator: (value) => validatePassword(value!),
-                      label: ' كلمة المرورالحالية',
-                      hint: ' كلمة المرورالحالية',
+                      label: ' ${LocaleKeys.welcom_mazzoon15.tr()}',
+                      hint: ' ${LocaleKeys.welcom_mazzoon15.tr()}',
                       inputType: TextInputType.visiblePassword,
                     )
                   : const SizedBox(),
@@ -68,8 +70,8 @@ class _ResetPasswordBodyState extends State<ResetPasswordBody> {
                   validator: (value) => validatePassword(value!),
                   focusNode: newPasswordFocus,
                   isPassword: true,
-                  label: ' كلمة المرور',
-                  hint: "ادخل كلمة مرور جديدة",
+                  label: ' ${LocaleKeys.password.tr()}',
+                  hint: LocaleKeys.welcom_mazzoon10.tr(),
                   inputType: TextInputType.visiblePassword,
                   onEditingComplete: () {
                     newPasswordFocus.unfocus();
@@ -81,15 +83,15 @@ class _ResetPasswordBodyState extends State<ResetPasswordBody> {
                   validator: (value) => validatePassword(value!),
                   focusNode: confirmPasswordFocus,
                   isPassword: true,
-                  label: ' كلمة المرور',
-                  hint: "اعد ادخال كلمة المرور",
+                  label: ' ${LocaleKeys.password.tr()}',
+                  hint: LocaleKeys.welcom_mazzoon11.tr(),
                   inputType: TextInputType.visiblePassword,
                   onEditingComplete: () {
                     confirmPasswordFocus.unfocus();
                   }),
               const VerticalSpace(value: 2),
               CustomGeneralButton(
-                text: 'حفظ',
+                text: LocaleKeys.save.tr(),
                 height: 45,
                 textColor: Colors.white,
                 // borderColor: MazzoonColor,
@@ -116,7 +118,7 @@ class _ResetPasswordBodyState extends State<ResetPasswordBody> {
                     // dialogMsg(context);
                     dialogMsg(
                         isCongrate: true,
-                        subTitle: "تم تعديل كلمة المرور بنجاح",
+                        subTitle: LocaleKeys.edit_password_done.tr(),
                         context: context,
                         onTap: () => MagicRouter.navigateAndPopAll(
                             const LayoutScreen()));

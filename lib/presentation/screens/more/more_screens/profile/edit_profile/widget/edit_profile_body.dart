@@ -165,7 +165,7 @@ class _EditProfileBodyState extends State<EditProfileBody> {
                 child: CustomTextFormField(
                     errorTextColor: Colors.red,
                     controller: city,
-                    validator: (value) => validateCity(value!),
+                    // validator: (value) => validateCity(value!),
                     focusNode: cityFocuse,
                     hint: '  City',
                     inputType: TextInputType.name,
@@ -179,7 +179,7 @@ class _EditProfileBodyState extends State<EditProfileBody> {
                 child: CustomTextFormField(
                     errorTextColor: Colors.red,
                     controller: place,
-                    validator: (value) => validatePlace(value!),
+                    // validator: (value) => validatePlace(value!),
                     focusNode: placeFocuse,
                     hint: '  Place',
                     inputType: TextInputType.name,

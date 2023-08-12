@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/constants/constants.dart';
 import '../../../../core/constants/colors.dart';
+import '../../../../generator/locale_keys.dart';
 
 class NotificationCard extends StatelessWidget {
   const NotificationCard(
@@ -8,13 +10,14 @@ class NotificationCard extends StatelessWidget {
       required this.title,
       required this.dividerColorCard,
       required this.subTitle,
-      required this.notificationCardCOlor,required this.onTap});
+      required this.notificationCardCOlor,
+      required this.onTap});
 
   final String title;
   final String subTitle;
   final Color notificationCardCOlor; //
   final Color dividerColorCard; //
- final void Function()? onTap;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -80,7 +83,7 @@ class NotificationCard extends StatelessWidget {
               InkWell(
                 onTap: onTap,
                 child: Text(
-                  "التفاصيل",
+                  LocaleKeys.details.tr(),
                   style: headingStyle.copyWith(
                       fontSize: 14,
                       fontWeight: FontWeight.w400,

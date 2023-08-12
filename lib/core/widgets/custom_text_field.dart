@@ -62,7 +62,6 @@ class CustomTextFormField extends StatelessWidget {
     return TextFormField(
       inputFormatters: inputFormatters ?? [],
       textAlign: TextAlign.start,
-      textDirection: TextDirection.rtl,
       validator: validator,
       readOnly: readOnly ?? false,
       onTap: ontap,
@@ -76,6 +75,7 @@ class CustomTextFormField extends StatelessWidget {
       style: headingStyle.copyWith(color: colordeepGrey, fontSize: 20),
       onEditingComplete: onEditingComplete,
       cursorColor: Colors.grey.shade400,
+      // showCursor: false,
       decoration: InputDecoration(
         alignLabelWithHint: true,
         labelStyle: headingStyle.copyWith(color: hintColor, fontSize: 16),

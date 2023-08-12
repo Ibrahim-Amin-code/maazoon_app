@@ -1,14 +1,16 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/constants/colors.dart';
 import 'package:maazoon_app/core/constants/constants.dart';
 import 'package:maazoon_app/core/router/router.dart';
 import 'package:maazoon_app/core/widgets/space_widget.dart';
 import 'package:maazoon_app/presentation/screens/more/more_screens/wallet/wallet_screen.dart';
-import 'package:maazoon_app/presentation/screens/my_reservation/my_reservation_screen.dart';
 import 'package:maazoon_app/presentation/screens/my_reservation_details/details_screen.dart';
 import 'package:maazoon_app/presentation/screens/notification/widget/notification_widget.dart';
+
+import '../../../../generator/locale_keys.dart';
 
 class NotificationBody extends StatelessWidget {
   const NotificationBody({
@@ -32,7 +34,7 @@ class NotificationBody extends StatelessWidget {
           children: [
             const VerticalSpace(value: 2),
             Text(
-              'الإشعارات',
+              LocaleKeys.notification.tr(),
               style: headingStyle.copyWith(
                 color: textColo2,
                 fontSize: 19,

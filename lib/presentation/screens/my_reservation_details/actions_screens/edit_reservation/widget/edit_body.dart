@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/constants/constants.dart';
 import 'package:maazoon_app/core/widgets/custom_text_field.dart';
@@ -8,6 +9,7 @@ import '../../../../../../core/constants/colors.dart';
 import '../../../../../../core/helper/validation.dart';
 import '../../../../../../core/router/router.dart';
 import '../../../../../../core/widgets/custom_buttons_widget.dart';
+import '../../../../../../generator/locale_keys.dart';
 import '../../../../layout/layout.dart';
 import '../../../widget/details_widgets.dart';
 
@@ -42,13 +44,13 @@ class EditReservationBody extends StatelessWidget {
             ReservationDeatailsSheikhCard(
               isEditting: true,
               onTap: () {},
-              statusTitle: "في انتظار موافقة المأذون",
+              statusTitle: LocaleKeys.wait_accepted.tr(),
               iconImage: "asset/images/Stopwatch.png",
               statusColor: textColor,
             ),
             const VerticalSpace(value: 1.5),
             Text(
-              "رقم طلب الزواج",
+              LocaleKeys.marriage_number.tr(),
               style: headingStyle.copyWith(
                   color: const Color(0xff1A1A1A),
                   fontSize: 19,
@@ -58,12 +60,12 @@ class EditReservationBody extends StatelessWidget {
             CustomTextFormField(
               controller: requestNumber,
               validator: (value) => validate(value!),
-              label: " ادخل الرقم المزود من وزارة العدل",
+              label: LocaleKeys.num_ministry_of_Justice.tr(), //
               inputType: TextInputType.number,
             ),
             const VerticalSpace(value: 1.5),
             Text(
-              "اختر المكان",
+              LocaleKeys.choose_place.tr(),
               style: headingStyle.copyWith(
                   color: const Color(0xff1A1A1A),
                   fontSize: 19,
@@ -74,12 +76,12 @@ class EditReservationBody extends StatelessWidget {
               suffix: Image.asset('asset/images/Icon (3).png'),
               controller: address,
               validator: (value) => validate(value!),
-              label: " البحث عن مكان",
+              label: translateString("searching for place", " البحث عن مكان"),
               inputType: TextInputType.streetAddress,
             ),
             const VerticalSpace(value: 1.5),
             Text(
-              "اختر اليوم",
+              LocaleKeys.choose_day.tr(),
               style: headingStyle.copyWith(
                   color: const Color(0xff1A1A1A),
                   fontSize: 19,
@@ -92,12 +94,12 @@ class EditReservationBody extends StatelessWidget {
               ontap: () {},
               controller: date,
               validator: (value) => validate(value!),
-              label: " اليوم",
+              label: LocaleKeys.day.tr(),
               inputType: TextInputType.datetime,
             ),
             const VerticalSpace(value: 2.5),
             Text(
-              "اختر الوقت",
+              LocaleKeys.choose_time.tr(),
               style: headingStyle.copyWith(
                   color: const Color(0xff1A1A1A),
                   fontSize: 19,
@@ -110,7 +112,7 @@ class EditReservationBody extends StatelessWidget {
               height: screenHeight(context) * 0.06,
               textColor: Colors.white,
               color: buttonColor,
-              text: "حفظ التعديلات",
+              text: LocaleKeys.save_edites.tr(),
               fontSize: 16,
               onTap: () {
                 dialogMsg(
@@ -118,7 +120,7 @@ class EditReservationBody extends StatelessWidget {
                     onTap: () =>
                         MagicRouter.navigateAndPopAll(const LayoutScreen()),
                     isCongrate: false,
-                    subTitle: "تم حفظ التعديلات بنجاح");
+                    subTitle: LocaleKeys.edites_done.tr());
               },
               borderRadius: 16,
             )

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/presentation/screens/auth/forgetpassword/forget_password.dart';
 import 'package:maazoon_app/presentation/screens/layout/layout.dart';
@@ -8,6 +9,7 @@ import '../../../../../core/router/router.dart';
 import '../../../../../core/widgets/custom_buttons_widget.dart';
 import '../../../../../core/widgets/custom_text_field.dart';
 import '../../../../../core/widgets/space_widget.dart';
+import '../../../../../generator/locale_keys.dart';
 import '../../register/register.dart';
 import '../../register/widget/register_widget.dart';
 
@@ -36,7 +38,7 @@ class _LoginBodyState extends State<LoginBody> {
           children: [
             const VerticalSpace(value: 2.8),
             Text(
-              'مرحبا بك في تطبيق مأذون',
+              LocaleKeys.welcom_mazzoon1.tr(),
               style: headingStyle.copyWith(
                   color: buttonColor,
                   fontWeight: FontWeight.w700,
@@ -44,7 +46,7 @@ class _LoginBodyState extends State<LoginBody> {
             ),
             const VerticalSpace(value: 0.1),
             Text(
-              "الشريك الموثوق لحفل زفافك",
+              LocaleKeys.welcom_mazzoon2.tr(),
               style: headingStyle.copyWith(
                   color: MazzoonColor,
                   fontWeight: FontWeight.w400,
@@ -55,7 +57,7 @@ class _LoginBodyState extends State<LoginBody> {
                 controller: phone,
                 validator: (value) => validateMobile(value!),
                 focusNode: phoneFocuse,
-                label: ' رقم الجوال',
+                label: ' ${LocaleKeys.phone.tr()}',
                 inputType: TextInputType.phone,
                 onEditingComplete: () {
                   phoneFocuse.unfocus();
@@ -66,7 +68,7 @@ class _LoginBodyState extends State<LoginBody> {
                 controller: password,
                 validator: (value) => validatePassword(value!),
                 focusNode: passwordFocuse,
-                label: '  كلمة المرور',
+                label: '  ${LocaleKeys.password.tr()}',
                 isPassword: true,
                 inputType: TextInputType.visiblePassword,
                 onEditingComplete: () {
@@ -74,12 +76,12 @@ class _LoginBodyState extends State<LoginBody> {
                 }),
             const VerticalSpace(value: 1.3),
             Align(
-              alignment: Alignment.centerLeft,
+              alignment: AlignmentDirectional.bottomEnd,
               child: InkWell(
                 onTap: () =>
                     MagicRouter.navigateTo(const ForgetPasswordScreen()),
                 child: Text(
-                  'نسيت كلمه المرور؟',
+                  LocaleKeys.forget_password1.tr(),
                   style: headingStyle.copyWith(
                     color: blueColor,
                     // blueColor,
@@ -91,7 +93,7 @@ class _LoginBodyState extends State<LoginBody> {
             ),
             const VerticalSpace(value: 1.3),
             CustomGeneralButton(
-              text: 'تسجيل الدخول',
+              text: LocaleKeys.login_button.tr(),
               height: 45,
               textColor: Colors.white,
               // borderColor: MazzoonColor,
@@ -125,8 +127,8 @@ class _LoginBodyState extends State<LoginBody> {
             Center(
               child: textSpanRegister(
                   onTap: () => MagicRouter.navigateTo(const RegisterScreen()),
-                  text1: 'ليس لديك حساب؟',
-                  text2: "انشاء حساب جديد",
+                  text1: LocaleKeys.have_no_account.tr(),
+                  text2: LocaleKeys.signup_button.tr(),
                   textOne: Colors.black,
                   textTwo: blueColor,
                   isUnder: false,

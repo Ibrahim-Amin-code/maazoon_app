@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/constants/colors.dart';
 import 'package:maazoon_app/core/constants/constants.dart';
@@ -10,6 +11,8 @@ import 'package:maazoon_app/core/widgets/rate_stars.dart';
 import 'package:maazoon_app/core/widgets/space_widget.dart';
 import 'package:maazoon_app/presentation/screens/layout/layout.dart';
 import 'package:maazoon_app/presentation/screens/my_reservation_details/widget/details_widgets.dart';
+
+import '../../../../../../generator/locale_keys.dart';
 
 class RateBody extends StatelessWidget {
   RateBody({
@@ -33,7 +36,7 @@ class RateBody extends StatelessWidget {
           children: [
             const VerticalSpace(value: 1.5),
             Text(
-              'تقييم المأذون',
+              LocaleKeys.rate_mazzoon.tr(),
               style: headingStyle.copyWith(
                   color: const Color(0xff1A1A1A),
                   fontSize: 19,
@@ -42,7 +45,7 @@ class RateBody extends StatelessWidget {
             const VerticalSpace(value: 1.5),
             ReservationDeatailsSheikhCard(
                 onTap: () {},
-                statusTitle: 'تم تنفيذ الطلب',
+                statusTitle: LocaleKeys.request_accepted.tr(),
                 iconImage: 'asset/images/Like.png',
                 statusColor: buttonColor),
             const VerticalSpace(value: 1.5),
@@ -50,7 +53,7 @@ class RateBody extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'قييم تجربتك',
+                  LocaleKeys.rate_experience.tr(),
                   style: headingStyle.copyWith(
                       color: textColor,
                       fontSize: 16,
@@ -64,7 +67,7 @@ class RateBody extends StatelessWidget {
             ),
             const VerticalSpace(value: 1.5),
             CustomTextFormField(
-              label: 'كيف كانت تجربتك',
+              label: LocaleKeys.how_experience.tr(),
               controller: rate,
               maxLines: 4,
             ),
@@ -74,14 +77,14 @@ class RateBody extends StatelessWidget {
               height: screenHeight(context) * 0.06,
               textColor: Colors.white,
               color: buttonColor,
-              text: 'ارسال التقيم',
+              text: LocaleKeys.rend_rate.tr(),
               onTap: () {
                 dialogMsg(
                     context: context,
                     onTap: () =>
                         MagicRouter.navigateAndPopAll(const LayoutScreen()),
                     isCongrate: false,
-                    subTitle: 'تم ارسال تقيمكم بنجاح');
+                    subTitle: LocaleKeys.send_rate_done.tr());
               },
               borderRadius: 16,
             )

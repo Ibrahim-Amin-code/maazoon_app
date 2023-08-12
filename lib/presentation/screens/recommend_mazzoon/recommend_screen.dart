@@ -1,9 +1,12 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/constants/constants.dart';
+import 'package:maazoon_app/core/router/router.dart';
 import 'package:maazoon_app/core/widgets/custom_buttons_widget.dart';
 import 'package:maazoon_app/presentation/screens/recommend_mazzoon/widget/recommend_body.dart';
 
 import '../../../../../core/constants/colors.dart';
+import '../../../generator/locale_keys.dart';
 
 class RecommendScreen extends StatefulWidget {
   const RecommendScreen({super.key});
@@ -14,9 +17,9 @@ class RecommendScreen extends StatefulWidget {
 
 class _RecommendScreenState extends State<RecommendScreen> {
   List<String> buttonTitle = [
-    "تاكيد مكان",
-    "تاكيد اليوم",
-    "تاكيد الساعة",
+    LocaleKeys.confirm_place.tr(),
+    translateString("Confirm Day", "تاكيد اليوم"),
+    translateString("Confirm Time", "تاكيد الساعة"),
     "",
   ];
 
@@ -32,7 +35,22 @@ class _RecommendScreenState extends State<RecommendScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MazzoonColor,
-      appBar: customAppbar(title: "رشح لى مأذون", context: context),
+      appBar: customAppbar(
+        title: LocaleKeys.recommen_mazzoon.tr(),
+        context: context,
+        ontap: () {
+          if (currentIndex != 0) {
+            setState(() {
+              currentIndex--;
+            });
+            controller!.animateToPage(currentIndex,
+                duration: const Duration(milliseconds: 1000),
+                curve: Curves.fastLinearToSlowEaseIn);
+          } else if (currentIndex == 0) {
+            MagicRouter.pop();
+          }
+        },
+      ),
       bottomNavigationBar: (currentIndex != buttonTitle.length - 1)
           ? Container(
               color: Colors.white,
@@ -49,7 +67,7 @@ class _RecommendScreenState extends State<RecommendScreen> {
                   SizedBox(
                     width: screenWidth(context) * 0.45,
                     child: CustomGeneralButton(
-                        text: "الرجوع",
+                        text: LocaleKeys.back.tr(),
                         textColor: Colors.black,
                         color: Colors.white,
                         borderColor: Colors.white,

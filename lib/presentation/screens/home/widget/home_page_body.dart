@@ -1,7 +1,9 @@
 // ignore_for_file: sort_child_properties_last
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/constants/constants.dart';
+import 'package:maazoon_app/generator/locale_keys.dart';
 import 'package:maazoon_app/presentation/screens/mazzoon/mazzoon_details/mazzoon_details.dart';
 import 'package:maazoon_app/presentation/screens/search/search_screen.dart';
 import 'package:page_transition/page_transition.dart';
@@ -45,7 +47,7 @@ class _HomeBodyState extends State<HomeBody> {
               const BuildRecommendCard(),
               const VerticalSpace(value: 2.5),
               Text(
-                'أعلي تقييما',
+                LocaleKeys.high_rate.tr(),
                 style: headingStyle.copyWith(
                     color: const Color(0xff101010),
                     fontWeight: FontWeight.w700,
@@ -65,7 +67,7 @@ class _HomeBodyState extends State<HomeBody> {
               const AddsWeddingPlace(),
               const VerticalSpace(value: 2),
               Text(
-                'مأذون مقترح ',
+                translateString("Recommended Ma'zoun", "مأذون مقترح"),
                 style: headingStyle.copyWith(
                     color: const Color(0xff101010),
                     fontWeight: FontWeight.w700,
@@ -73,7 +75,7 @@ class _HomeBodyState extends State<HomeBody> {
               ),
               const VerticalSpace(value: 1.5),
               SizedBox(
-                height: screenHeight(context) * 0.23,
+                height: screenHeight(context) * 0.2,
                 child: ListView.separated(
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) => const SuggestMazzoon(),

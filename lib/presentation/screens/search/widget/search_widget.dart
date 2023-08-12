@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/widgets/custom_text_field.dart';
 
 import '../../../../core/constants/colors.dart';
 import '../../../../core/constants/constants.dart';
+import '../../../../generator/locale_keys.dart';
 
 class SearchWidget extends StatefulWidget {
   const SearchWidget(
@@ -34,7 +36,7 @@ class _SearchWidgetState extends State<SearchWidget> {
             width: screenWidth(context) * 0.45,
             child: CustomTextFormField(
               controller: widget.controller,
-              hint: "اسم المأذون",
+              hint: LocaleKeys.mazzoon_name.tr(),
               borderSideColor: Colors.transparent,
               borderSideColor2: Colors.transparent,
             ),
@@ -48,7 +50,7 @@ class _SearchWidgetState extends State<SearchWidget> {
             child: Row(
               children: [
                 Text(
-                  'التصفية',
+                  LocaleKeys.filter.tr(),
                   style: headingStyle.copyWith(
                     color: Colors.black,
                     fontSize: 15,
@@ -71,7 +73,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Center(
-                child: Text('ابحث',
+                child: Text(LocaleKeys.search.tr(),
                     style: headingStyle.copyWith(
                         color: Colors.white,
                         fontSize: 15,

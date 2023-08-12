@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:maazoon_app/generator/locale_keys.dart';
 import 'package:maazoon_app/presentation/screens/auth/reset_password/reset_password_screen.dart';
 import '../../../../../core/constants/colors.dart';
 import '../../../../../core/constants/constants.dart';
@@ -38,7 +40,7 @@ class _ForgetPasswordBodyState extends State<ForgetPasswordBody> {
             children: [
               const VerticalSpace(value: 2.8),
               Text(
-                'من فضلك ادخل رقم الجوال لارسال الرمز',
+                LocaleKeys.welcom_mazzoon5.tr(),
                 style: headingStyle.copyWith(
                     color: MazzoonColor,
                     fontWeight: FontWeight.w400,
@@ -48,12 +50,12 @@ class _ForgetPasswordBodyState extends State<ForgetPasswordBody> {
               CustomTextFormField(
                 controller: phone,
                 validator: (value) => validateMobile(value!),
-                label: ' رقم الجوال',
+                label: ' ${LocaleKeys.phone.tr()}',
                 inputType: TextInputType.phone,
               ),
               const VerticalSpace(value: 1.5),
               CustomGeneralButton(
-                text: "ارسل الرمز",
+                text: LocaleKeys.send_code.tr(),
                 height: 45,
                 textColor: Colors.white,
                 // borderColor: MazzoonColor,
@@ -78,10 +80,12 @@ class _ForgetPasswordBodyState extends State<ForgetPasswordBody> {
                     //     state: ToastStates.ERROR);
                     // }
                     MagicRouter.navigateTo(CodeScreen(
-                        titleAppBar: "نسيت كلمة المرور",
-                        buttonText: "تحقق",
-                        onTap: () => MagicRouter.navigateTo(
-                             const ResetPasswordScreen(isFromProfile: false,))));
+                        titleAppBar: LocaleKeys.forget_password2.tr(),
+                        buttonText: LocaleKeys.check.tr(),
+                        onTap: () =>
+                            MagicRouter.navigateTo(const ResetPasswordScreen(
+                              isFromProfile: false,
+                            ))));
                   }
                 },
                 color: buttonColor,

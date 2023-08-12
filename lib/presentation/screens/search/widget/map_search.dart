@@ -1,14 +1,13 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:maazoon_app/core/constants/colors.dart';
 import 'package:maazoon_app/core/constants/constants.dart';
 import 'package:maazoon_app/core/widgets/custom_text_field.dart';
 import 'package:maazoon_app/core/widgets/space_widget.dart';
-import 'package:maazoon_app/presentation/screens/home/widget/home_widgets.dart';
 import 'package:maazoon_app/presentation/screens/splash/splash.dart';
-import 'package:page_transition/page_transition.dart';
 
-import '../search_screen.dart';
+import '../../../../generator/locale_keys.dart';
 
 class MapSearchItem extends StatefulWidget {
   const MapSearchItem({super.key});
@@ -78,7 +77,7 @@ class _MapSearchItemState extends State<MapSearchItem> {
   }
 
   Widget searchMapButton() => CustomTextFormField(
-        label: "ابحث",
+        label: LocaleKeys.search.tr(),
         controller: search,
         suffix: Container(
           height: screenHeight(context) * 0.065,
@@ -88,7 +87,7 @@ class _MapSearchItemState extends State<MapSearchItem> {
             borderRadius: BorderRadius.circular(15),
           ),
           child: Center(
-            child: Text('ابحث',
+            child: Text(LocaleKeys.search.tr(),
                 style: headingStyle.copyWith(
                     color: Colors.white,
                     fontSize: 15,

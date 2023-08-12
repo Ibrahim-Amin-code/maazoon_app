@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:maazoon_app/core/constants/colors.dart';
@@ -9,6 +10,8 @@ import 'package:maazoon_app/core/widgets/custom_drop_down.dart';
 import 'package:maazoon_app/core/widgets/custom_text_field.dart';
 import 'package:maazoon_app/core/widgets/space_widget.dart';
 import 'package:maazoon_app/presentation/screens/splash/splash.dart';
+
+import '../../../../generator/locale_keys.dart';
 
 class SelectPlaceWidget extends StatelessWidget {
   SelectPlaceWidget({super.key});
@@ -22,30 +25,30 @@ class SelectPlaceWidget extends StatelessWidget {
       children: [
         const VerticalSpace(value: 2),
         Text(
-          "اختر مكان عقد القران",
+          translateString("Choose wedding place", "اختر مكان عقد القران"), //
           style: headingStyle.copyWith(
             fontSize: screenWidth(context) * 0.05,
             fontWeight: FontWeight.bold,
           ),
         ),
         const VerticalSpace(value: 2),
-        const CustomDropDown(
-          text: "البلد",
-          items: [],
+        CustomDropDown(
+          text: LocaleKeys.conutry.tr(),
+          items: const [],
         ),
         const VerticalSpace(value: 2),
-        const CustomDropDown(
-          text: "المدينة",
-          items: [],
+        CustomDropDown(
+          text: LocaleKeys.city.tr(),
+          items: const [],
         ),
         const VerticalSpace(value: 2),
-        const CustomDropDown(
-          text: "الحي",
-          items: [],
+        CustomDropDown(
+          text: LocaleKeys.street.tr(),
+          items: const [],
         ),
         const VerticalSpace(value: 2),
         CustomTextFormField(
-          hint: "العنوان",
+          hint: LocaleKeys.address.tr(),
           readOnly: true,
           controller: address,
           inputType: TextInputType.streetAddress,

@@ -20,7 +20,7 @@ class _SelectWeddingDateState extends State<SelectWeddingDate> {
       children: [
         const VerticalSpace(value: 2),
         Text(
-          "اختر يوم عقد القران",
+          translateString("Choose marriage day", "اختر يوم عقد القران"),
           style: headingStyle.copyWith(
             fontSize: screenWidth(context) * 0.05,
             fontWeight: FontWeight.bold,

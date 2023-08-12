@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/router/router.dart';
+import 'package:maazoon_app/generator/locale_keys.dart';
 import 'package:maazoon_app/presentation/screens/my_reservation_details/actions_screens/switch_sheikh/switch_sheikh.dart';
 
 import '../../../../core/constants/colors.dart';
@@ -178,10 +180,10 @@ class ReservationDeatailsSheikhCard extends StatelessWidget {
           SizedBox(
             height: screenHeight(context) * 0.02,
           ),
-          (statusTitle == "تم قبول العرض")
+          (statusTitle == LocaleKeys.offer_accepted.tr())
               ? ActionButtonInReservationCard(
                   onTap: onTap,
-                  title: "تواصل هاتفيا",
+                  title: LocaleKeys.call_us.tr(),
                   iconImage: 'asset/images/Phone.png',
                   borderColor: colorGreen,
                   textColor: colorGreen)
@@ -189,7 +191,7 @@ class ReservationDeatailsSheikhCard extends StatelessWidget {
                   ? ActionButtonInReservationCard(
                       onTap: () =>
                           MagicRouter.navigateTo(const SwitchSheikhScreen()),
-                      title: "تبديل المأذون",
+                      title: LocaleKeys.switch_mazzoon1.tr(),
                       isEditting: true,
                       borderColor: textColor,
                       textColor: textColor)

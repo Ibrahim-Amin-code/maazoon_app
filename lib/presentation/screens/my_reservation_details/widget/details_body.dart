@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/constants/colors.dart';
 import 'package:maazoon_app/core/constants/constants.dart';
@@ -11,14 +12,15 @@ import 'package:maazoon_app/presentation/screens/my_reservation_details/actions_
 import 'package:maazoon_app/presentation/screens/my_reservation_details/actions_screens/switch_sheikh/switch_sheikh.dart';
 import 'package:maazoon_app/presentation/screens/my_reservation_details/widget/details_widgets.dart';
 
+import '../../../../generator/locale_keys.dart';
+
 class ReservationDetailsBody extends StatelessWidget {
   final int index;
   const ReservationDetailsBody({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {
-    return
-     Container(
+    return Container(
       decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
@@ -35,12 +37,12 @@ class ReservationDetailsBody extends StatelessWidget {
             ReservationDeatailsSheikhCard(
               onTap: () {},
               statusTitle: (index == 0)
-                  ? "تم قبول العرض"
+                  ? LocaleKeys.offer_accepted.tr()
                   : (index == 1)
-                      ? "في انتظار موافقة المأذون"
+                      ? LocaleKeys.wait_accepted.tr()
                       : (index == 2)
-                          ? "المأذون اعتذر عن الحضور"
-                          : "تم تنفيذ الطلب",
+                          ? LocaleKeys.apologized_not_attending.tr()
+                          : LocaleKeys.the_request_done.tr(),
               iconImage: (index == 0)
                   ? "asset/images/Check Circle.png"
                   : (index == 1)
@@ -57,27 +59,30 @@ class ReservationDetailsBody extends StatelessWidget {
                           : brownColor,
             ),
             const VerticalSpace(value: 1),
-            const DetailsQuranDone(
+            DetailsQuranDone(
                 isFromDetails: false,
                 isHight: true,
-                title: 'مكان عقد القران',
+                title: translateString(
+                    "The marriage contract place", 'مكان عقد القران'),
                 subTitle:
                     "المملكة العربية السعودية، الدمام، حي الفيصلية، شارع الأمير نايف بن عبدالعزيز، العمارة رقم ٤٥، الشقة رقم ٦٧٨",
                 imageIcon: "asset/images/Map Point.png"),
             const Divider(),
             const VerticalSpace(value: 0.1),
-            const DetailsQuranDone(
+            DetailsQuranDone(
                 isFromDetails: false,
                 isHight: false,
-                title: "تاريخ عقد القران",
+                title: translateString(
+                    "The marriage contract place", 'مكان عقد القران'),
                 subTitle: "10 ذو القعدة 1444",
                 imageIcon: "asset/images/Calendar.png"),
             const Divider(),
             const VerticalSpace(value: 0.1),
-            const DetailsQuranDone(
+            DetailsQuranDone(
                 isFromDetails: false,
                 isHight: false,
-                title: "وقت القران",
+                title:
+                    translateString("The marriage contract time", 'وقت القران'),
                 subTitle: "10:00 مساء",
                 imageIcon: "asset/images/Clock Circle11.png"),
             (index == 0)
@@ -89,7 +94,9 @@ class ReservationDetailsBody extends StatelessWidget {
                       ? MagicRouter.navigateTo(const ReportSheikhScreen())
                       : MagicRouter.navigateTo(const CancelReservationScreen());
                 },
-                title: (index == 3) ? "الابلاغ عن المأذون" : "الغاء الطلب",
+                title: (index == 3)
+                    ? LocaleKeys.report_mazzoon.tr()
+                    : LocaleKeys.cancel_request.tr(),
                 iconImage: (index == 3)
                     ? "asset/images/Flag 2.png"
                     : "asset/images/Close Circle.png",
@@ -98,10 +105,10 @@ class ReservationDetailsBody extends StatelessWidget {
             const VerticalSpace(value: 1.5),
             CustomGeneralButton(
               text: (index == 2)
-                  ? "استبدال المأذون"
+                  ? LocaleKeys.switch_mazzoon.tr()
                   : (index == 3)
-                      ? "تقييم المأذون"
-                      : "التعديل على الطلب",
+                      ? LocaleKeys.rate_mazzoon.tr()
+                      : LocaleKeys.edit_request.tr(),
               height: screenHeight(context) * 0.06,
               iconImage: (index == 2)
                   ? "asset/images/Repeat.png"
@@ -126,7 +133,5 @@ class ReservationDetailsBody extends StatelessWidget {
         ),
       ),
     );
- 
- 
   }
 }

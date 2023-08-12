@@ -1,6 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/constants/colors.dart';
 import 'package:maazoon_app/core/constants/constants.dart';
+
+import '../../../../../generator/locale_keys.dart';
 
 class PaymentMethods extends StatefulWidget {
   const PaymentMethods({super.key});
@@ -13,7 +16,12 @@ class _PaymentMethodsState extends State<PaymentMethods> {
   int? timeSelected;
   int? radioValue;
 
-  List<String> payments = ['فيزا', "ماستر كارد", "أبل باى", "اس تى سى باى"];
+  List<String> payments = [
+    LocaleKeys.visa.tr(),
+    LocaleKeys.master.tr(),
+    LocaleKeys.apple_pay.tr(),
+    LocaleKeys.stc.tr()
+  ];
   List<String> paymentsIcons = [
     'asset/images/Visa.png',
     'asset/images/Master Card.png',
@@ -64,11 +72,8 @@ class _PaymentMethodsState extends State<PaymentMethods> {
         ),
       ),
     );
-
   }
 }
-
-
 
 class PayWallect extends StatefulWidget {
   const PayWallect({super.key});
@@ -82,41 +87,37 @@ class _PayWallectState extends State<PayWallect> {
 
   @override
   Widget build(BuildContext context) {
-    return   Row(
-              children: [
-                InkWell(
-                  onTap: () {
-                    setState(() {
-                      checked = !checked;
-                    });
-                  },
-                  child: (checked != true)
-                      ? Image.asset(
-                          'asset/images/Vector12.png',
-                        )
-                      : Image.asset(
-                          'asset/images/Check Square.png',
-                        ),
+    return Row(
+      children: [
+        InkWell(
+          onTap: () {
+            setState(() {
+              checked = !checked;
+            });
+          },
+          child: (checked != true)
+              ? Image.asset(
+                  'asset/images/Vector12.png',
+                )
+              : Image.asset(
+                  'asset/images/Check Square.png',
                 ),
-                const SizedBox(
-                  width: 15,
-                ),
-                Image.asset(
-                  'asset/images/Wallet2.png',
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  "دفع 50 ر.س متبقى لديك 400 ر.س",
-                  style: headingStyle.copyWith(
-                      color: textColo2,
-                      fontWeight: FontWeight.w400,
-                      fontSize: 13),
-                ),
-              ],
-            )
-          
-          ;
+        ),
+        const SizedBox(
+          width: 15,
+        ),
+        Image.asset(
+          'asset/images/Wallet2.png',
+        ),
+        const SizedBox(
+          width: 10,
+        ),
+        Text(
+          "دفع 50 ر.س متبقى لديك 400 ر.س",
+          style: headingStyle.copyWith(
+              color: textColo2, fontWeight: FontWeight.w400, fontSize: 13),
+        ),
+      ],
+    );
   }
 }

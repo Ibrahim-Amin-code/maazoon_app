@@ -1,5 +1,6 @@
 import 'package:analog_clock/analog_clock.dart';
 import 'package:calendar_date_picker2/calendar_date_picker2.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/widgets/custom_buttons_widget.dart';
 import 'package:maazoon_app/presentation/screens/search/widget/search_widget.dart';
@@ -8,6 +9,7 @@ import '../../../../core/constants/colors.dart';
 import '../../../../core/constants/constants.dart';
 import '../../../../core/widgets/custom_drop_down.dart';
 import '../../../../core/widgets/space_widget.dart';
+import '../../../../generator/locale_keys.dart';
 import '../../home/widget/home_widgets.dart';
 
 class SearchByName extends StatefulWidget {
@@ -64,9 +66,10 @@ class _SearchByNameState extends State<SearchByName> {
                             child: Image.asset(
                                 'asset/images/Rectangle 40144.png')),
                         const VerticalSpace(value: 1),
-                        expansionTileFittler(name: " التصفية ", children: []),
                         expansionTileFittler(
-                            name: "تصفية حسب التقييم",
+                            name: " ${LocaleKeys.filter.tr()} ", children: []),
+                        expansionTileFittler(
+                            name: LocaleKeys.filter_by_rate.tr(),
                             children: [
                               SfSlider(
                                 min: 1.0,
@@ -86,7 +89,7 @@ class _SearchByNameState extends State<SearchByName> {
                               const VerticalSpace(value: 2),
                             ]),
                         expansionTileFittler(
-                            name: "تصفية حسب المكان",
+                            name: LocaleKeys.filter_by_place.tr(),
                             children: [
                               Padding(
                                 padding: EdgeInsets.symmetric(
@@ -94,19 +97,19 @@ class _SearchByNameState extends State<SearchByName> {
                                 child: Column(
                                   children: [
                                     CustomDropDown(
-                                      text: " البلد",
+                                      text: " ${LocaleKeys.conutry.tr()}",
                                       borderColor: verticalDivider1,
                                       fillColor: Colors.transparent,
                                     ),
                                     const VerticalSpace(value: 1.5),
                                     CustomDropDown(
-                                      text: " المدينة",
+                                      text: " ${LocaleKeys.city.tr()}",
                                       borderColor: verticalDivider1,
                                       fillColor: Colors.transparent,
                                     ),
                                     const VerticalSpace(value: 1.5),
                                     CustomDropDown(
-                                      text: " الحي",
+                                      text: " ${LocaleKeys.street.tr()}",
                                       borderColor: verticalDivider1,
                                       fillColor: Colors.transparent,
                                     ),
@@ -116,7 +119,7 @@ class _SearchByNameState extends State<SearchByName> {
                               ),
                             ]),
                         expansionTileFittler(
-                            name: "حسب اليوم المتاح",
+                            name: LocaleKeys.filter_by_day.tr(),
                             children: [
                               Padding(
                                 padding: EdgeInsets.symmetric(
@@ -150,7 +153,7 @@ class _SearchByNameState extends State<SearchByName> {
                               ),
                             ]),
                         expansionTileFittler(
-                            name: "حسب الساعة المتاحة ",
+                            name: LocaleKeys.filter_by_time.tr(),
                             children: [
                               Padding(
                                 padding: EdgeInsets.symmetric(
@@ -233,7 +236,7 @@ class _SearchByNameState extends State<SearchByName> {
                                                   ),
                                                   child: Center(
                                                     child: Text(
-                                                      "مساءا",
+                                                      LocaleKeys.pm.tr(),
                                                       style:
                                                           headingStyle.copyWith(
                                                         fontSize: screenWidth(
@@ -286,7 +289,7 @@ class _SearchByNameState extends State<SearchByName> {
                                                   ),
                                                   child: Center(
                                                     child: Text(
-                                                      "صباحاً",
+                                                      LocaleKeys.am.tr(),
                                                       style:
                                                           headingStyle.copyWith(
                                                         fontSize: screenWidth(
@@ -317,7 +320,7 @@ class _SearchByNameState extends State<SearchByName> {
                           padding: EdgeInsets.symmetric(
                               horizontal: screenWidth(context) * 0.03),
                           child: CustomGeneralButton(
-                            text: "تصفية النتائج",
+                            text: LocaleKeys.filter_result.tr(),
                             onTap: () {},
                             color: buttonColor,
                             height: screenHeight(context) * 0.065,

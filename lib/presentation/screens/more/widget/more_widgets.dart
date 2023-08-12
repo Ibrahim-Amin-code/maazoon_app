@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:maazoon_app/core/widgets/custom_drop_down.dart';
 
 import '../../../../core/constants/colors.dart';
 import '../../../../core/constants/constants.dart';
@@ -108,24 +109,36 @@ class LangCard extends StatelessWidget {
                   color: textColor, fontSize: 16, fontWeight: FontWeight.w700),
             ),
             const Spacer(),
-            Text(
-              'العربية',
-              style: headingStyle.copyWith(
-                fontSize: 15,
-                fontWeight: FontWeight.w400,
-                color: textColor,
-              ),
-            ),
             SizedBox(
-              width: screenWidth(context) * 0.01,
-            ),
-            InkWell(
-              onTap: onTap,
-              child: Icon(
-                Icons.keyboard_arrow_down_outlined,
-                size: screenWidth(context) * 0.08,
+              width: screenWidth(context) * 0.35,
+              child: CustomDropDown(
+                borderColor: Colors.transparent,
+                text: prefs.getString('language')!,
+                items: const [
+                  "العربية",
+                  "English",
+                ],
               ),
-            )
+            ),
+
+            // Text(
+            //   prefs.getString('language')!,
+            //   style: headingStyle.copyWith(
+            //     fontSize: 15,
+            //     fontWeight: FontWeight.w400,
+            //     color: textColor,
+            //   ),
+            // ),
+            // SizedBox(
+            //   width: screenWidth(context) * 0.01,
+            // ),
+            // InkWell(
+            //   onTap: onTap,
+            //   child: Icon(
+            //     Icons.keyboard_arrow_down_outlined,
+            //     size: screenWidth(context) * 0.08,
+            //   ),
+            // )
           ],
         ),
         const VerticalSpace(value: 1.5),

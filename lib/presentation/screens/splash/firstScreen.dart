@@ -52,7 +52,7 @@ class _FirstScreenState extends State<FirstScreen>
       body: AnimatedBuilder(
         animation: _sizeAnimation!,
         builder: (context, child) => AnimatedOpacity(
-          opacity: visible ? 1.0 : 0.0,
+          opacity: visible ? 0.5 : 0.0,
           duration: const Duration(milliseconds: 500),
           child: Center(
             child: SizedBox(

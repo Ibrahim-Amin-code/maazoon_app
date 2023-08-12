@@ -1,14 +1,16 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:maazoon_app/core/constants/colors.dart';
 import 'package:maazoon_app/core/constants/constants.dart';
-import 'package:maazoon_app/core/router/router.dart';
 import 'package:maazoon_app/core/widgets/custom_buttons_widget.dart';
 import 'package:maazoon_app/core/widgets/space_widget.dart';
 import 'package:maazoon_app/presentation/screens/mazzoon/mazzoon_booking/mazzoon_booking.dart';
 import 'package:page_transition/page_transition.dart';
+
+import '../../../../../generator/locale_keys.dart';
 
 class MazzoonDetailsBody extends StatelessWidget {
   const MazzoonDetailsBody({
@@ -94,7 +96,7 @@ class MazzoonDetailsBody extends StatelessWidget {
             ),
             const VerticalSpace(value: 16),
             CustomGeneralButton(
-              text: "حجز المأذون",
+              text: LocaleKeys.reservation_mazzoon.tr(),
               onTap: () => Navigator.push(
                 context,
                 PageTransition(
